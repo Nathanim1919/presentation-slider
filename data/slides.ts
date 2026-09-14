@@ -18,7 +18,160 @@ export const slides: Slide[] = [
     },
   },
 
-  // SLIDE 02 ── GOOD DESIGN IS INVISIBLE
+  // ──────────────────────────────────────────────────────────
+  // SPEAKER INTRO
+  // ──────────────────────────────────────────────────────────
+
+  // SLIDE 02 ── WHO I AM
+  {
+    id: 'who-i-am',
+    title: 'Who I Am',
+    type: 'hero',
+    content: {
+      meta: 'ABOUT THE SPEAKER',
+      headline: 'WHO I AM',
+      subheadline: 'Nathanim Tadele — Software Engineer & Interface Craftsman',
+      footer: 'Building software where technical depth meets human experience.',
+    },
+    speakerNotes: [
+      'Take a brief pause before diving into the core design curriculum.',
+      'Introduce yourself briefly, authentically, and confidently.',
+      'Establish credibility: you write production full-stack code, not just conceptual slide decks.',
+    ],
+  },
+
+  // SLIDE 03 ── FULL STACK & FRONTEND FREEDOM
+  {
+    id: 'fullstack-frontend-freedom',
+    title: 'Full Stack & Frontend Freedom',
+    type: 'comparison',
+    content: {
+      heading: 'Full-stack by foundation. Frontend by obsession.',
+      connectorLabel: 'BRIDGED BY INTENT',
+      left: {
+        label: 'THE FULL STACK',
+        heading: 'Architecture & Logic',
+        points: [
+          'Designing scalable APIs, schemas, databases, and business rules.',
+          'Ensuring reliability, performance, security, and state integrity.',
+          'Solving complex algorithmic and infrastructural challenges.',
+          'The engine that gives a product stability and computing power.',
+        ],
+        tone: 'neutral',
+      },
+      right: {
+        label: 'THE FRONTEND',
+        heading: 'Freedom & Human Touch',
+        points: [
+          'Where cold code meets warm human psychology and perception.',
+          'The creative freedom to shape how someone feels in every millisecond.',
+          'Crafting micro-interactions, layout rhythm, and kinetic fluidity.',
+          'No matter how strong the backend is, the user experiences the frontend.',
+        ],
+        tone: 'positive',
+      },
+    },
+    speakerNotes: [
+      'Explain your perspective as a full-stack engineer.',
+      'Highlight why you love frontend: it gives you the creative freedom to directly influence human behavior and emotional clarity.',
+      'Emphasize: "Backend gives a product power. Frontend gives a product humanity."',
+    ],
+  },
+
+  // SLIDE 04 ── WHY I CARE ABOUT DESIGN
+  {
+    id: 'why-design-matters',
+    title: 'Why Design Matters to an Engineer',
+    type: 'explanation',
+    content: {
+      heading: 'Why I treat interface as an engineering discipline.',
+      body: [
+        'Too often, software is built strictly from the inside out — starting from database schemas and ending with screens hastily glued on top.',
+        'I build from the outside in — obsessing over the human sitting on the other side of the glass, then architecting every layer of the system to serve that experience.',
+        'Great frontend isn’t decorative styling. It is cognitive clarity, respect for the user’s time, and the reason software feels effortless instead of exhausting.',
+      ],
+      visual: {
+        type: 'list',
+        items: [
+          'Logic makes it functional',
+          'Architecture makes it scale',
+          'Design makes it intuitive',
+          'Craft makes it memorable',
+        ],
+      },
+    },
+    speakerNotes: [
+      'Connect your engineering discipline to the workshop theme.',
+      'Address the common developer pitfall: "If the API works and the tests pass, my job is done."',
+      'Challenge the audience: true engineering craftsmanship means the product solves human problems seamlessly.',
+    ],
+  },
+
+  // ──────────────────────────────────────────────────────────
+  // TABLE OF CONTENTS ── THE ROADMAP
+  // ──────────────────────────────────────────────────────────
+
+  // SLIDE 05 ── TABLE OF CONTENTS
+  {
+    id: 'table-of-contents',
+    title: 'Table of Contents',
+    type: 'table_of_contents',
+    content: {
+      meta: 'THE ROADMAP',
+      heading: 'What We’re Exploring Today',
+      statement: 'From engineering logic and mental models to live interactive design sandboxes.',
+      items: [
+        {
+          number: '01',
+          title: 'Mental Models',
+          description: 'Why good design is invisible & why the screen is never the beginning.',
+          tag: 'FOUNDATION',
+        },
+        {
+          number: '02',
+          title: 'Design Thinking',
+          description: 'Balancing desirability, feasibility & viability in a continuous learning loop.',
+          tag: 'FRAMEWORK',
+        },
+        {
+          number: '03',
+          title: 'UX vs UI',
+          description: 'Why UX is bigger than pixels — thinking in flows, friction & human context.',
+          tag: 'PERSPECTIVE',
+        },
+        {
+          number: '04',
+          title: 'Problem Framing',
+          description: 'Finding the problem behind the problem with "How Might We" & rapid tests.',
+          tag: 'DISCOVERY',
+        },
+        {
+          number: '05',
+          title: 'Good vs Bad UX',
+          description: '6 live interactive sandboxes breaking down affordance, errors & trust.',
+          tag: 'INTERACTIVE LAB',
+        },
+        {
+          number: '06',
+          title: 'Product Reality',
+          description: 'Accessibility, cognitive load, and why you are not done when you ship.',
+          tag: 'SCALE & CRAFT',
+        },
+      ],
+      footnote: '6 Core Modules • Structured Theory • Hands-On Interactive Labs',
+    },
+    speakerNotes: [
+      'Give the audience a high-level roadmap of what today covers.',
+      'Highlight Module 05: this isn’t just lecture slides — we will run live interactive UX sandboxes together.',
+      'Set expectations: by the end of this session, you will look at every interface with product-designer eyes.',
+    ],
+  },
+
+  // ──────────────────────────────────────────────────────────
+  // PART 1 — CHANGE THEIR MENTAL MODEL
+  // ──────────────────────────────────────────────────────────
+
+  // SLIDE 06 ── GOOD DESIGN IS INVISIBLE
   {
     id: 'invisible-design',
     title: 'Good Design Is Invisible',

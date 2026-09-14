@@ -19,6 +19,7 @@ import DesignProcessSlide from '@/components/slides/DesignProcessSlide';
 import PrinciplesSlide from '@/components/slides/PrinciplesSlide';
 import UxScenarioSlide from '@/components/slides/UxScenarioSlide';
 import SynthesisSlide from '@/components/slides/SynthesisSlide';
+import TableOfContentsSlide from '@/components/slides/TableOfContentsSlide';
 
 interface SlideRendererProps {
   slide: Slide;
@@ -62,6 +63,8 @@ export default function SlideRenderer({ slide }: SlideRendererProps) {
       return <UxScenarioSlide content={slide.content} />;
     case 'synthesis':
       return <SynthesisSlide content={slide.content} />;
+    case 'table_of_contents':
+      return <TableOfContentsSlide content={slide.content} />;
     default:
       return (
         <div className="flex flex-1 items-center justify-center">

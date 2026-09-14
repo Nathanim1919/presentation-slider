@@ -20,7 +20,8 @@ export type SlideType =
   | 'design_process'
   | 'principles'
   | 'ux_scenario'
-  | 'synthesis';
+  | 'synthesis'
+  | 'table_of_contents';
 
 /* ---- Content shapes per slide type ---- */
 
@@ -268,6 +269,21 @@ export interface UxScenarioContent {
   takeaway: string;
 }
 
+export interface TableOfContentsItem {
+  number: string;
+  title: string;
+  description: string;
+  tag?: string;
+}
+
+export interface TableOfContentsContent {
+  meta?: string;
+  heading: string;
+  statement?: string;
+  items: TableOfContentsItem[];
+  footnote?: string;
+}
+
 export interface SynthesisContent {
   eyebrow?: string;
   heading: string;
@@ -305,4 +321,5 @@ export type Slide =
   | (SlideBase & { type: 'design_process';    content: DesignProcessContent })
   | (SlideBase & { type: 'principles';        content: PrinciplesContent })
   | (SlideBase & { type: 'ux_scenario';       content: UxScenarioContent })
-  | (SlideBase & { type: 'synthesis';         content: SynthesisContent });
+  | (SlideBase & { type: 'synthesis';         content: SynthesisContent })
+  | (SlideBase & { type: 'table_of_contents'; content: TableOfContentsContent });
