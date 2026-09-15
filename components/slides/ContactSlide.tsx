@@ -215,6 +215,44 @@ export default function ContactSlide({ content }: ContactSlideProps) {
             <span>GitHub</span>
           </a>
         </div>
+
+        {/* 5. Prominent "BACK TO WORKSHOPS" Action Button */}
+        <div className="final-step-4" style={{ marginTop: 'var(--space-4)' }}>
+          <a
+            href="/"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 'var(--space-3)',
+              padding: '12px 28px',
+              borderRadius: 'var(--radius-md)',
+              background: 'var(--bg-elevated)',
+              border: '1px solid var(--border-default)',
+              color: 'var(--text-primary)',
+              fontSize: 'var(--text-small)',
+              fontWeight: 600,
+              letterSpacing: '0.04em',
+              textDecoration: 'none',
+              transition: 'all 0.2s ease',
+              boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
+            }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.borderColor = 'var(--accent)';
+              el.style.background = 'var(--bg-hover)';
+              el.style.transform = 'translateY(-1px)';
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.borderColor = 'var(--border-default)';
+              el.style.background = 'var(--bg-elevated)';
+              el.style.transform = 'translateY(0)';
+            }}
+          >
+            <span style={{ color: 'var(--accent)' }} aria-hidden="true">←</span>
+            <span>BACK TO WORKSHOPS</span>
+          </a>
+        </div>
       </div>
 
       <style jsx>{`
@@ -242,6 +280,11 @@ export default function ContactSlide({ content }: ContactSlideProps) {
         .final-step-3 {
           opacity: 0;
           animation: quietFadeUp 550ms cubic-bezier(0.16, 1, 0.3, 1) 400ms forwards;
+        }
+
+        .final-step-4 {
+          opacity: 0;
+          animation: quietFadeUp 550ms cubic-bezier(0.16, 1, 0.3, 1) 520ms forwards;
         }
       `}</style>
     </article>

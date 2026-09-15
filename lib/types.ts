@@ -170,6 +170,8 @@ export interface ContactContent {
   email?: string;
   links?: ContactLink[];
   closingQuote?: string;
+  backToWorkshops?: boolean;
+  backToWorkshopsLabel?: string;
 }
 
 export interface LifecycleStage {
@@ -323,3 +325,17 @@ export type Slide =
   | (SlideBase & { type: 'ux_scenario';       content: UxScenarioContent })
   | (SlideBase & { type: 'synthesis';         content: SynthesisContent })
   | (SlideBase & { type: 'table_of_contents'; content: TableOfContentsContent });
+
+/* ============================================
+   WORKSHOP DIRECTORY MODEL
+   ============================================ */
+
+export interface Workshop {
+  id: string;               // e.g. 'introduction', 'ui-ux', 'backend-systems', etc.
+  number: string;           // '00', '01', '02', etc.
+  title: string;
+  subtitle: string;
+  description?: string;
+  status: 'available' | 'coming_soon';
+  slides: Slide[];
+}

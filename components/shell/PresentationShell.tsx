@@ -1,34 +1,53 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { slides } from '@/data/slides';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import type { Workshop, Slide } from '@/lib/types';
+import { uiUxSlides } from '@/data/workshops';
 import SlideRenderer from '@/components/shell/SlideRenderer';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 
-const STORAGE_KEY = 'presentation-slide-index';
+interface PresentationShellProps {
+  workshop?: Workshop;
+  slides?: Slide[];
+  workshopTitle?: string;
+  initialSlideIndex?: number;
+}
 
-export default function PresentationShell() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export default function PresentationShell({
+  workshop,
+  slides: explicitSlides,
+  workshopTitle: explicitTitle,
+  initialSlideIndex = 0,
+}: PresentationShellProps) {
+  const router = useRouter();
+  const effectiveSlides = explicitSlides || workshop?.slides || uiUxSlides;
+  const effectiveTitle = explicitTitle || workshop?.title || 'UI/UX & Product Design';
+  const workshopId = workshop?.id || 'default';
+  const storageKey = `presentation-slide-index-${workshopId}`;
+
+  const [currentIndex, setCurrentIndex] = useState(initialSlideIndex);
   const [transitioning, setTransitioning] = useState(false);
   const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
-  const totalSlides = slides.length;
+  const totalSlides = effectiveSlides.length;
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Restore from sessionStorage
   useEffect(() => {
-    const saved = sessionStorage.getItem(STORAGE_KEY);
+    const saved = sessionStorage.getItem(storageKey);
     if (saved) {
       const idx = parseInt(saved, 10);
       if (!isNaN(idx) && idx >= 0 && idx < totalSlides) {
         setCurrentIndex(idx);
       }
     }
-  }, [totalSlides]);
+  }, [storageKey, totalSlides]);
 
   // Persist to sessionStorage
   useEffect(() => {
-    sessionStorage.setItem(STORAGE_KEY, String(currentIndex));
-  }, [currentIndex]);
+    sessionStorage.setItem(storageKey, String(currentIndex));
+  }, [currentIndex, storageKey]);
 
   const goTo = useCallback(
     (index: number, dir: 'forward' | 'backward') => {
@@ -56,6 +75,18 @@ export default function PresentationShell() {
     if (currentIndex > 0) goTo(currentIndex - 1, 'backward');
   }, [currentIndex, goTo]);
 
+  const goHome = useCallback(() => {
+    goTo(0, 'backward');
+  }, [goTo]);
+
+  const goEnd = useCallback(() => {
+    goTo(totalSlides - 1, 'forward');
+  }, [goTo, totalSlides]);
+
+  const returnToWorkshops = useCallback(() => {
+    router.push('/');
+  }, [router]);
+
   // Keyboard navigation
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -69,15 +100,25 @@ export default function PresentationShell() {
       } else if (e.key === 'ArrowLeft') {
         e.preventDefault();
         goPrev();
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        returnToWorkshops();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        goHome();
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        goEnd();
       }
     };
 
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [goNext, goPrev]);
+  }, [goNext, goPrev, goHome, goEnd, returnToWorkshops]);
 
-  const currentSlide = slides[currentIndex];
+  const currentSlide = effectiveSlides[currentIndex] || effectiveSlides[0];
   const progress = ((currentIndex + 1) / totalSlides) * 100;
+  const isFinalSlide = currentIndex === totalSlides - 1;
 
   return (
     <div
@@ -101,10 +142,53 @@ export default function PresentationShell() {
           borderBottom: '1px solid var(--border-subtle)',
           flexShrink: 0,
           minHeight: 56,
+          background: 'var(--bg-primary)',
+          zIndex: 10,
         }}
       >
-        {/* Left — slide title */}
+        {/* Left — Return to Workshops + breadcrumb */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)', minWidth: 0 }}>
+          <Link
+            href="/"
+            aria-label="Return to Workshops Directory"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 'var(--space-2)',
+              fontSize: 'var(--text-small)',
+              fontWeight: 600,
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
+              color: 'var(--text-secondary)',
+              textDecoration: 'none',
+              padding: '6px 12px',
+              borderRadius: 'var(--radius-sm)',
+              background: 'rgba(255, 255, 255, 0.04)',
+              border: '1px solid var(--border-subtle)',
+              transition: 'all var(--duration-fast) ease',
+              flexShrink: 0,
+            }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.color = 'var(--text-primary)';
+              el.style.background = 'var(--bg-hover)';
+              el.style.borderColor = 'var(--accent)';
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.color = 'var(--text-secondary)';
+              el.style.background = 'rgba(255, 255, 255, 0.04)';
+              el.style.borderColor = 'var(--border-subtle)';
+            }}
+          >
+            <span style={{ color: 'var(--accent)' }} aria-hidden="true">←</span>
+            <span>WORKSHOPS</span>
+          </Link>
+
+          <span style={{ color: 'var(--border-default)' }} aria-hidden="true">
+            /
+          </span>
+
           <h1
             style={{
               fontSize: 'var(--text-small)',
@@ -117,7 +201,7 @@ export default function PresentationShell() {
             }}
           >
             <span style={{ color: 'var(--text-tertiary)', marginRight: 'var(--space-3)' }}>
-              UI/UX & Product Design
+              {effectiveTitle}
             </span>
             <span style={{ color: 'var(--border-default)' }} aria-hidden="true">
               /
@@ -128,17 +212,18 @@ export default function PresentationShell() {
           </h1>
         </div>
 
-        {/* Right — navigation */}
+        {/* Right — navigation controls */}
         <nav
           style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)', flexShrink: 0 }}
           aria-label="Slide navigation"
         >
-          {/* Counter */}
+          {/* Slide Counter */}
           <span
             style={{
               fontSize: 'var(--text-caption)',
               color: 'var(--text-tertiary)',
               fontVariantNumeric: 'tabular-nums',
+              fontWeight: 500,
             }}
             role="status"
             aria-live="polite"
@@ -152,7 +237,7 @@ export default function PresentationShell() {
           {/* Theme switcher */}
           <ThemeToggle />
 
-          {/* Prev */}
+          {/* Prev button */}
           <button
             onClick={goPrev}
             disabled={currentIndex === 0}
@@ -172,14 +257,25 @@ export default function PresentationShell() {
               opacity: currentIndex === 0 ? 0.4 : 1,
               fontSize: '14px',
             }}
+            onMouseEnter={(e) => {
+              if (currentIndex > 0) {
+                (e.currentTarget as HTMLElement).style.borderColor = 'var(--text-secondary)';
+                (e.currentTarget as HTMLElement).style.color = 'var(--text-primary)';
+              }
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-default)';
+              (e.currentTarget as HTMLElement).style.color =
+                currentIndex === 0 ? 'var(--text-tertiary)' : 'var(--text-secondary)';
+            }}
           >
             ←
           </button>
 
-          {/* Next */}
+          {/* Next button */}
           <button
             onClick={goNext}
-            disabled={currentIndex === totalSlides - 1}
+            disabled={isFinalSlide}
             aria-label="Next slide"
             style={{
               width: 32,
@@ -190,11 +286,22 @@ export default function PresentationShell() {
               border: '1px solid var(--border-default)',
               borderRadius: 'var(--radius-sm)',
               background: 'transparent',
-              color: currentIndex === totalSlides - 1 ? 'var(--text-tertiary)' : 'var(--text-secondary)',
-              cursor: currentIndex === totalSlides - 1 ? 'not-allowed' : 'pointer',
+              color: isFinalSlide ? 'var(--text-tertiary)' : 'var(--text-secondary)',
+              cursor: isFinalSlide ? 'not-allowed' : 'pointer',
               transition: 'all var(--duration-fast) ease',
-              opacity: currentIndex === totalSlides - 1 ? 0.4 : 1,
+              opacity: isFinalSlide ? 0.4 : 1,
               fontSize: '14px',
+            }}
+            onMouseEnter={(e) => {
+              if (!isFinalSlide) {
+                (e.currentTarget as HTMLElement).style.borderColor = 'var(--text-secondary)';
+                (e.currentTarget as HTMLElement).style.color = 'var(--text-primary)';
+              }
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-default)';
+              (e.currentTarget as HTMLElement).style.color =
+                isFinalSlide ? 'var(--text-tertiary)' : 'var(--text-secondary)';
             }}
           >
             →
@@ -211,6 +318,7 @@ export default function PresentationShell() {
           minHeight: 0,
           padding: 'var(--space-5) var(--space-6)',
           overflow: 'hidden',
+          position: 'relative',
         }}
         aria-live="polite"
       >

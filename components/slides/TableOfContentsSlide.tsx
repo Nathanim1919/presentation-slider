@@ -203,22 +203,66 @@ export default function TableOfContentsSlide({ content }: TableOfContentsSlidePr
           })}
         </div>
 
-        {/* Footnote */}
-        {content.footnote && (
-          <p
-            className="stagger-4 slide-active"
+        {/* Footnote & Back Action */}
+        <div
+          className="stagger-4 slide-active"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 'var(--space-3)',
+          }}
+        >
+          {content.footnote && (
+            <p
+              style={{
+                fontSize: 'var(--text-small)',
+                color: 'var(--text-tertiary)',
+                margin: 0,
+                maxWidth: '60ch',
+                lineHeight: 'var(--leading-normal)',
+                letterSpacing: '0.02em',
+              }}
+            >
+              {content.footnote}
+            </p>
+          )}
+
+          <a
+            href="/"
             style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 'var(--space-2)',
+              padding: '10px 24px',
+              borderRadius: 'var(--radius-md)',
+              background: 'var(--bg-elevated)',
+              border: '1px solid var(--border-default)',
+              color: 'var(--text-primary)',
               fontSize: 'var(--text-small)',
-              color: 'var(--text-tertiary)',
-              margin: 0,
-              maxWidth: '60ch',
-              lineHeight: 'var(--leading-normal)',
-              letterSpacing: '0.02em',
+              fontWeight: 600,
+              letterSpacing: '0.04em',
+              textDecoration: 'none',
+              transition: 'all 0.2s ease',
+              marginTop: 'var(--space-2)',
+            }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.borderColor = 'var(--accent)';
+              el.style.background = 'var(--bg-hover)';
+              el.style.transform = 'translateY(-1px)';
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.borderColor = 'var(--border-default)';
+              el.style.background = 'var(--bg-elevated)';
+              el.style.transform = 'translateY(0)';
             }}
           >
-            {content.footnote}
-          </p>
-        )}
+            <span style={{ color: 'var(--accent)' }} aria-hidden="true">←</span>
+            <span>BACK TO WORKSHOPS</span>
+          </a>
+        </div>
       </div>
     </article>
   );
