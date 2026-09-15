@@ -1,11 +1,11 @@
 import { redirect } from 'next/navigation';
 import type { Metadata } from 'next';
-import { getWorkshopById, getAllWorkshops } from '@/data/workshops';
+import { getWorkshopItemBySlug, getAllWorkshopSlugs } from '@/data/workshops';
 import PresentationShell from '@/components/shell/PresentationShell';
 
 export function generateStaticParams() {
-  return getAllWorkshops().map((workshop) => ({
-    slug: workshop.id,
+  return getAllWorkshopSlugs().map((slug) => ({
+    slug,
   }));
 }
 
@@ -15,17 +15,17 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const workshop = getWorkshopById(slug);
+  const item = getWorkshopItemBySlug(slug);
 
-  if (!workshop) {
+  if (!item) {
     return {
       title: 'Workshop · Nathanim Tadele',
     };
   }
 
   return {
-    title: `${workshop.title} · Nathanim Tadele`,
-    description: workshop.subtitle,
+    title: `${item.title} · Nathanim Tadele`,
+    description: item.subtitle,
   };
 }
 
@@ -35,11 +35,16 @@ export default async function WorkshopPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const workshop = getWorkshopById(slug);
+  const item = getWorkshopItemBySlug(slug);
 
-  if (!workshop) {
+  if (!item) {
     redirect('/');
   }
 
-  return <PresentationShell workshop={workshop} />;
+  return (
+    <PresentationShell
+      slides={item.slides}
+      workshopTitle={item.title}
+    />
+  );
 }

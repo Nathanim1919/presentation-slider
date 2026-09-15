@@ -20,6 +20,19 @@ import PrinciplesSlide from '@/components/slides/PrinciplesSlide';
 import UxScenarioSlide from '@/components/slides/UxScenarioSlide';
 import SynthesisSlide from '@/components/slides/SynthesisSlide';
 import TableOfContentsSlide from '@/components/slides/TableOfContentsSlide';
+import RevealSlide from '@/components/slides/RevealSlide';
+import UiTransformSlide from '@/components/slides/UiTransformSlide';
+import ButtonStorySlide from '@/components/slides/ButtonStorySlide';
+import JourneySlide from '@/components/slides/JourneySlide';
+import ChallengeSlide from '@/components/slides/ChallengeSlide';
+import ThreeLayerSlide from '@/components/slides/ThreeLayerSlide';
+import ButtonStatesSlide from '@/components/slides/ButtonStatesSlide';
+import DesignMasterySlide from '@/components/slides/DesignMasterySlide';
+import DesignInternetSlide from '@/components/slides/DesignInternetSlide';
+import IntroJourneySlide from '@/components/slides/IntroJourneySlide';
+import IntroBuildSlide from '@/components/slides/IntroBuildSlide';
+import IntroProjectsSlide from '@/components/slides/IntroProjectsSlide';
+import IntroBridgeSlide from '@/components/slides/IntroBridgeSlide';
 
 interface SlideRendererProps {
   slide: Slide;
@@ -65,6 +78,32 @@ export default function SlideRenderer({ slide }: SlideRendererProps) {
       return <SynthesisSlide content={slide.content} />;
     case 'table_of_contents':
       return <TableOfContentsSlide content={slide.content} />;
+    case 'reveal':
+      return <RevealSlide content={slide.content} />;
+    case 'ui_transform':
+      return <UiTransformSlide content={slide.content} />;
+    case 'button_story':
+      return <ButtonStorySlide content={slide.content} />;
+    case 'journey':
+      return <JourneySlide content={slide.content} />;
+    case 'challenge':
+      return <ChallengeSlide content={slide.content} />;
+    case 'three_layer':
+      return <ThreeLayerSlide content={slide.content} />;
+    case 'button_states':
+      return <ButtonStatesSlide content={slide.content} />;
+    case 'design_mastery':
+      return <DesignMasterySlide content={slide.content} />;
+    case 'design_internet':
+      return <DesignInternetSlide content={slide.content} />;
+    case 'intro_journey':
+      return <IntroJourneySlide content={slide.content} />;
+    case 'intro_build':
+      return <IntroBuildSlide content={slide.content} />;
+    case 'intro_projects':
+      return <IntroProjectsSlide content={slide.content} />;
+    case 'intro_bridge':
+      return <IntroBridgeSlide content={slide.content} />;
     default:
       return (
         <div className="flex flex-1 items-center justify-center">

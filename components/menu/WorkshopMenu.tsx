@@ -33,13 +33,16 @@ export default function WorkshopMenu() {
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
-          <span
+          <img
+            src="/photo_2026-01-05_02-51-50.jpg"
+            alt="Nathanim Tadele"
             style={{
-              width: 8,
-              height: 8,
-              borderRadius: 'var(--radius-full)',
-              background: 'var(--accent)',
-              display: 'inline-block',
+              width: 26,
+              height: 26,
+              borderRadius: '50%',
+              objectFit: 'cover',
+              border: '1.5px solid var(--accent)',
+              boxShadow: '0 0 10px rgba(232, 115, 74, 0.3)',
             }}
           />
           <span
@@ -123,7 +126,7 @@ export default function WorkshopMenu() {
             aria-hidden="true"
           />
 
-          {/* Directory Rows */}
+          {/* Directory Navigation */}
           <nav
             style={{
               display: 'flex',
@@ -133,9 +136,181 @@ export default function WorkshopMenu() {
             aria-label="Workshop Directory"
           >
             {workshops.map((workshop) => {
-              const isHovered = hoveredId === workshop.id;
-              const isComingSoon = workshop.status === 'coming_soon';
+              const hasSubItems = workshop.subItems && workshop.subItems.length > 0;
+              const isDirectHovered = hoveredId === workshop.id;
 
+              if (hasSubItems) {
+                return (
+                  <div
+                    key={workshop.id}
+                    style={{
+                      borderBottom: '1px solid var(--border-subtle)',
+                      padding: 'var(--space-5) 0',
+                    }}
+                  >
+                    {/* Category Header */}
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: 'clamp(1.25rem, 3vw, 2.5rem)',
+                        padding: '0 var(--space-4) var(--space-3)',
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily: 'monospace',
+                          fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
+                          fontWeight: 700,
+                          letterSpacing: '-0.02em',
+                          color: 'var(--text-tertiary)',
+                          lineHeight: 1,
+                          marginTop: 2,
+                          minWidth: '2.5ch',
+                        }}
+                      >
+                        {workshop.number}
+                      </span>
+
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        <h2
+                          style={{
+                            fontSize: 'clamp(1.125rem, 1.8vw, 1.375rem)',
+                            fontWeight: 600,
+                            letterSpacing: '-0.02em',
+                            color: 'var(--text-primary)',
+                            margin: 0,
+                            lineHeight: 'var(--leading-snug)',
+                          }}
+                        >
+                          {workshop.title}
+                        </h2>
+                        <p
+                          style={{
+                            fontSize: 'var(--text-small)',
+                            color: 'var(--text-secondary)',
+                            lineHeight: 'var(--leading-normal)',
+                            margin: 0,
+                          }}
+                        >
+                          {workshop.subtitle}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Sub-Items List */}
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: 'var(--space-1)',
+                        paddingLeft: 'clamp(2.5rem, 5vw, 4.5rem)',
+                        paddingRight: 'var(--space-2)',
+                        marginTop: 'var(--space-2)',
+                      }}
+                    >
+                      {workshop.subItems!.map((subItem) => {
+                        const isSubHovered = hoveredId === subItem.id;
+
+                        return (
+                          <Link
+                            key={subItem.id}
+                            href={`/workshops/${subItem.id}`}
+                            onMouseEnter={() => setHoveredId(subItem.id)}
+                            onMouseLeave={() => setHoveredId(null)}
+                            style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'space-between',
+                              padding: 'var(--space-3) var(--space-4)',
+                              textDecoration: 'none',
+                              background: isSubHovered
+                                ? 'var(--bg-elevated)'
+                                : 'rgba(255, 255, 255, 0.02)',
+                              border: isSubHovered
+                                ? '1px solid var(--accent)'
+                                : '1px solid var(--border-subtle)',
+                              borderRadius: 'var(--radius-sm)',
+                              transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                              transform: isSubHovered
+                                ? 'translateX(4px)'
+                                : 'translateX(0)',
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 'var(--space-4)',
+                                minWidth: 0,
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily: 'monospace',
+                                  fontSize: '0.875rem',
+                                  fontWeight: 700,
+                                  color: isSubHovered
+                                    ? 'var(--accent)'
+                                    : 'var(--text-tertiary)',
+                                  letterSpacing: '0.04em',
+                                  transition: 'color 0.2s ease',
+                                }}
+                              >
+                                {subItem.number}
+                              </span>
+
+                              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <span
+                                  style={{
+                                    fontSize: '0.9375rem',
+                                    fontWeight: 600,
+                                    letterSpacing: '0.02em',
+                                    color: isSubHovered
+                                      ? 'var(--text-primary)'
+                                      : 'var(--text-primary)',
+                                    textTransform: 'uppercase',
+                                  }}
+                                >
+                                  {subItem.title}
+                                </span>
+                                <span
+                                  style={{
+                                    fontSize: 'var(--text-caption)',
+                                    color: 'var(--text-secondary)',
+                                  }}
+                                >
+                                  {subItem.subtitle}
+                                </span>
+                              </div>
+                            </div>
+
+                            <span
+                              style={{
+                                fontSize: '1.125rem',
+                                color: isSubHovered
+                                  ? 'var(--accent)'
+                                  : 'var(--text-tertiary)',
+                                opacity: isSubHovered ? 1 : 0.5,
+                                transform: isSubHovered
+                                  ? 'translateX(4px)'
+                                  : 'translateX(0)',
+                                transition: 'all 0.2s ease',
+                                display: 'inline-block',
+                              }}
+                              aria-hidden="true"
+                            >
+                              →
+                            </span>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              }
+
+              // Direct Workshop Row (e.g. 00 INTRODUCTION)
               return (
                 <Link
                   key={workshop.id}
@@ -149,11 +324,11 @@ export default function WorkshopMenu() {
                     padding: 'var(--space-5) var(--space-4)',
                     borderBottom: '1px solid var(--border-subtle)',
                     textDecoration: 'none',
-                    background: isHovered ? 'var(--bg-elevated)' : 'transparent',
+                    background: isDirectHovered ? 'var(--bg-elevated)' : 'transparent',
                     borderRadius: 'var(--radius-sm)',
                     transition: 'all 0.22s cubic-bezier(0.16, 1, 0.3, 1)',
                     position: 'relative',
-                    transform: isHovered ? 'translateX(4px)' : 'translateX(0)',
+                    transform: isDirectHovered ? 'translateX(4px)' : 'translateX(0)',
                   }}
                 >
                   {/* Left Column: Number + Title & Subtitle */}
@@ -165,14 +340,15 @@ export default function WorkshopMenu() {
                       minWidth: 0,
                     }}
                   >
-                    {/* Large Anchor Number */}
                     <span
                       style={{
                         fontFamily: 'monospace',
                         fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
                         fontWeight: 700,
                         letterSpacing: '-0.02em',
-                        color: isHovered ? 'var(--accent)' : 'var(--text-tertiary)',
+                        color: isDirectHovered
+                          ? 'var(--accent)'
+                          : 'var(--text-tertiary)',
                         transition: 'color 0.2s ease',
                         lineHeight: 1,
                         marginTop: 2,
@@ -182,49 +358,21 @@ export default function WorkshopMenu() {
                       {workshop.number}
                     </span>
 
-                    {/* Workshop Meta */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                      <div
+                      <h2
                         style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: 'var(--space-3)',
-                          flexWrap: 'wrap',
+                          fontSize: 'clamp(1.125rem, 1.8vw, 1.375rem)',
+                          fontWeight: 600,
+                          letterSpacing: '-0.02em',
+                          color: isDirectHovered
+                            ? 'var(--text-primary)'
+                            : 'var(--text-primary)',
+                          margin: 0,
+                          lineHeight: 'var(--leading-snug)',
                         }}
                       >
-                        <h2
-                          style={{
-                            fontSize: 'clamp(1.125rem, 1.8vw, 1.375rem)',
-                            fontWeight: 600,
-                            letterSpacing: '-0.02em',
-                            color: isHovered
-                              ? 'var(--text-primary)'
-                              : 'var(--text-primary)',
-                            margin: 0,
-                            lineHeight: 'var(--leading-snug)',
-                          }}
-                        >
-                          {workshop.title}
-                        </h2>
-
-                        {isComingSoon && (
-                          <span
-                            style={{
-                              fontSize: '0.6875rem',
-                              fontWeight: 600,
-                              letterSpacing: '0.08em',
-                              textTransform: 'uppercase',
-                              padding: '2px 8px',
-                              borderRadius: 'var(--radius-full)',
-                              background: 'rgba(255, 255, 255, 0.05)',
-                              color: 'var(--text-tertiary)',
-                              border: '1px solid var(--border-subtle)',
-                            }}
-                          >
-                            Preview
-                          </span>
-                        )}
-                      </div>
+                        {workshop.title}
+                      </h2>
 
                       <p
                         style={{
@@ -250,9 +398,13 @@ export default function WorkshopMenu() {
                     <span
                       style={{
                         fontSize: '1.25rem',
-                        color: isHovered ? 'var(--accent)' : 'var(--text-tertiary)',
-                        opacity: isHovered ? 1 : 0.4,
-                        transform: isHovered ? 'translateX(4px)' : 'translateX(0)',
+                        color: isDirectHovered
+                          ? 'var(--accent)'
+                          : 'var(--text-tertiary)',
+                        opacity: isDirectHovered ? 1 : 0.4,
+                        transform: isDirectHovered
+                          ? 'translateX(4px)'
+                          : 'translateX(0)',
                         transition: 'all 0.22s cubic-bezier(0.16, 1, 0.3, 1)',
                         display: 'inline-block',
                       }}

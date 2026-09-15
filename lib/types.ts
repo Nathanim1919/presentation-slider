@@ -21,7 +21,13 @@ export type SlideType =
   | 'principles'
   | 'ux_scenario'
   | 'synthesis'
-  | 'table_of_contents';
+  | 'table_of_contents'
+  | 'reveal'
+  | 'ui_transform'
+  | 'button_story'
+  | 'journey'
+  | 'challenge'
+  | 'three_layer';
 
 /* ---- Content shapes per slide type ---- */
 
@@ -31,6 +37,7 @@ export interface HeroContent {
   meta?: string;
   footer?: string;
   attribution?: string;
+  avatar?: string;
 }
 
 export interface StatementContent {
@@ -213,7 +220,7 @@ export interface DesignProcessStage {
   whatWeDo: string[];
   output: string[];
   keyIdea: string;
-  example: {
+  example?: {
     title: string;
     description: string;
     contrast?: {
@@ -298,10 +305,201 @@ export interface SynthesisContent {
 
 /* ---- Discriminated union: Slide ---- */
 
+/* ---- New slide content types (narrative redesign) ---- */
+
+export interface RevealLine {
+  text: string;
+  emphasis?: boolean;
+  size?: 'normal' | 'large' | 'display';
+  color?: 'primary' | 'accent' | 'muted';
+}
+
+export interface RevealContent {
+  lines: (RevealLine | string)[];
+  caption?: string;
+}
+
+export interface UiTransformContent {
+  heading: string;
+  description?: string;
+}
+
+export interface ButtonStoryContent {
+  heading: string;
+  narrative?: string;
+  description?: string;
+}
+
+export interface JourneyStep {
+  id: string;
+  label: string;
+  question: string;
+  isFriction?: boolean;
+  frictionDetail?: string;
+}
+
+export interface JourneyContent {
+  heading: string;
+  product?: string;
+  context?: string;
+  steps: JourneyStep[];
+  mode?: 'story' | 'friction';
+  insight?: string;
+  insightLabel?: string;
+}
+
+export interface ChallengeQuestion {
+  label: string;
+  prompt: string;
+}
+
+export interface ChallengeReveal {
+  title: string;
+  steps: string[];
+}
+
+export interface ChallengeContent {
+  scenario: string;
+  rule?: string;
+  badge?: string;
+  questions: ChallengeQuestion[];
+  reveal?: ChallengeReveal;
+}
+
+export interface ThreeLayerItem {
+  label: string;
+  sublabel?: string;
+  questions: string[];
+}
+
+export interface ThreeLayerContent {
+  heading?: string;
+  layers: ThreeLayerItem[];
+  closing?: string;
+  overlap?: boolean;
+}
+
+export interface ButtonStateItem {
+  id: string;
+  label: string;
+  description: string;
+  icon?: string;
+  cssSelector?: string;
+  uxPrinciple?: string;
+  badge?: string;
+}
+
+export interface ButtonStatesContent {
+  heading?: string;
+  caption?: string;
+  buttonLabel?: string;
+  states: ButtonStateItem[];
+}
+
+export interface MasteryPrincipleItem {
+  id: string;
+  number: string;
+  title: string;
+  subtitle?: string;
+  items?: string[];
+  contrast?: {
+    insteadOf: string;
+    ask: string;
+  };
+  iterationSteps?: string[];
+  quote?: {
+    text: string;
+    subtext?: string;
+  };
+}
+
+export interface DesignMasteryContent {
+  heading: string;
+  subtitle?: string;
+  loop: string[];
+  principles: MasteryPrincipleItem[];
+  closing: string;
+}
+
+export interface ResourceLink {
+  name: string;
+  url: string;
+  description?: string;
+  highlights: string[];
+}
+
+export interface ResourceCategory {
+  id: string;
+  number: string;
+  question: string;
+  accent?: string;
+  resources: ResourceLink[];
+  directStudy?: string[];
+  recommendedGuide?: {
+    name: string;
+    url: string;
+    note: string;
+  };
+}
+
+export interface DesignInternetContent {
+  heading: string;
+  subtitle?: string;
+  categories: ResourceCategory[];
+  investigation: {
+    heading: string;
+    insteadOf: string;
+    questions: string[];
+    takeaway: string;
+  };
+}
+
+export interface IntroJourneyContent {
+  heading: string;
+  steps: { label: string; sub?: string }[];
+  story: string[];
+}
+
+export interface IntroBuildContent {
+  unexpectedQuote: string;
+  subQuote: string;
+  primaryHeading: string;
+  workflow: string[];
+  explanation: string[];
+  note: string;
+}
+
+export interface ProjectShowcaseItem {
+  name: string;
+  tagline: string;
+  description: string;
+  tag: string;
+}
+
+export interface IntroProjectsContent {
+  heading: string;
+  subheading?: string;
+  statements?: string[];
+  quote?: string;
+  projects?: ProjectShowcaseItem[];
+}
+
+export interface IntroBridgeContent {
+  question: string;
+  reflections: string[];
+  climax: string;
+  subclimax: string;
+  ctaText?: string;
+  ctaUrl?: string;
+}
+
+/* ---- SlideBase ---- */
+
 export interface SlideBase {
   id: string;
   title: string;
   subtitle?: string;
+  act?: string;          // e.g. 'ACT II · UI' — displayed in the shell header
   speakerNotes?: string[];
 }
 
@@ -324,18 +522,40 @@ export type Slide =
   | (SlideBase & { type: 'principles';        content: PrinciplesContent })
   | (SlideBase & { type: 'ux_scenario';       content: UxScenarioContent })
   | (SlideBase & { type: 'synthesis';         content: SynthesisContent })
-  | (SlideBase & { type: 'table_of_contents'; content: TableOfContentsContent });
+  | (SlideBase & { type: 'table_of_contents'; content: TableOfContentsContent })
+  | (SlideBase & { type: 'reveal';            content: RevealContent })
+  | (SlideBase & { type: 'ui_transform';      content: UiTransformContent })
+  | (SlideBase & { type: 'button_story';      content: ButtonStoryContent })
+  | (SlideBase & { type: 'journey';           content: JourneyContent })
+  | (SlideBase & { type: 'challenge';         content: ChallengeContent })
+  | (SlideBase & { type: 'three_layer';       content: ThreeLayerContent })
+  | (SlideBase & { type: 'button_states';     content: ButtonStatesContent })
+  | (SlideBase & { type: 'design_mastery';    content: DesignMasteryContent })
+  | (SlideBase & { type: 'design_internet';   content: DesignInternetContent })
+  | (SlideBase & { type: 'intro_journey';     content: IntroJourneyContent })
+  | (SlideBase & { type: 'intro_build';       content: IntroBuildContent })
+  | (SlideBase & { type: 'intro_projects';    content: IntroProjectsContent })
+  | (SlideBase & { type: 'intro_bridge';      content: IntroBridgeContent });
 
 /* ============================================
    WORKSHOP DIRECTORY MODEL
    ============================================ */
 
+export interface WorkshopSubItem {
+  id: string;               // e.g. 'ui-ux', 'practice'
+  number: string;           // e.g. '001', '002'
+  title: string;            // e.g. 'UI/UX & PRODUCT DESIGN', 'PRACTICE'
+  subtitle: string;
+  slides: Slide[];
+}
+
 export interface Workshop {
-  id: string;               // e.g. 'introduction', 'ui-ux', 'backend-systems', etc.
-  number: string;           // '00', '01', '02', etc.
+  id: string;               // e.g. 'introduction', 'ui-ux'
+  number: string;           // e.g. '00', '01'
   title: string;
   subtitle: string;
   description?: string;
   status: 'available' | 'coming_soon';
-  slides: Slide[];
+  slides?: Slide[];
+  subItems?: WorkshopSubItem[];
 }

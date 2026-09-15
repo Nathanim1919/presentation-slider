@@ -106,6 +106,34 @@ export default function ContactSlide({ content }: ContactSlideProps) {
           {content.heading || 'Thank You.'}
         </h1>
 
+        {/* Avatar */}
+        <div className="final-step-2 mb-1">
+          <div
+            style={{
+              width: 88,
+              height: 88,
+              borderRadius: '50%',
+              padding: 2.5,
+              background:
+                'linear-gradient(135deg, var(--accent) 0%, rgba(255,255,255,0.2) 100%)',
+              boxShadow: '0 0 28px rgba(232, 115, 74, 0.35)',
+              margin: '0 auto',
+            }}
+          >
+            <img
+              src="/photo_2026-01-05_02-51-50.jpg"
+              alt={content.name || 'Nathanim Tadele'}
+              style={{
+                width: '100%',
+                height: '100%',
+                borderRadius: '50%',
+                objectFit: 'cover',
+                display: 'block',
+              }}
+            />
+          </div>
+        </div>
+
         {/* 2. Name */}
         <div className="final-step-2">
           <span

@@ -198,17 +198,34 @@ export default function PresentationShell({
               whiteSpace: 'nowrap',
               overflow: 'hidden',
               textOverflow: 'ellipsis',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 'var(--space-3)',
             }}
           >
-            <span style={{ color: 'var(--text-tertiary)', marginRight: 'var(--space-3)' }}>
+            <span style={{ color: 'var(--text-tertiary)' }}>
               {effectiveTitle}
             </span>
-            <span style={{ color: 'var(--border-default)' }} aria-hidden="true">
-              /
-            </span>
-            <span style={{ marginLeft: 'var(--space-3)', color: 'var(--text-primary)', fontWeight: 600 }}>
+            <span style={{ color: 'var(--border-default)' }} aria-hidden="true">/</span>
+            <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>
               {currentSlide.title}
             </span>
+            {currentSlide.act && (
+              <>
+                <span style={{ color: 'var(--border-default)' }} aria-hidden="true">/</span>
+                <span
+                  style={{
+                    fontSize: 'var(--text-caption)',
+                    fontWeight: 600,
+                    color: 'var(--accent-text)',
+                    letterSpacing: '0.06em',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  {currentSlide.act}
+                </span>
+              </>
+            )}
           </h1>
         </div>
 
