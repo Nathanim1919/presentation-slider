@@ -25,7 +25,7 @@ export default function RevealSlide({ content }: RevealSlideProps) {
   }, [content]);
 
   return (
-    <article className="flex flex-1 flex-col items-center justify-center px-8 text-center">
+    <article className="slide-article flex flex-1 flex-col items-center justify-center px-8 text-center">
       <div style={{ maxWidth: '22ch' }}>
         {content.lines.map((line, i) => {
           const isString = typeof line === 'string';

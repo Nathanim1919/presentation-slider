@@ -78,7 +78,7 @@ export default function ContactSlide({ content }: ContactSlideProps) {
 
   return (
     <article
-      className="flex flex-1 flex-col items-center justify-center px-8 py-6 text-center"
+      className="slide-article flex flex-1 flex-col items-center justify-center px-8 py-6 text-center"
       style={{ width: '100%', height: '100%' }}
     >
       <div

@@ -9,7 +9,7 @@ interface IntroBridgeSlideProps {
 
 export default function IntroBridgeSlide({ content }: IntroBridgeSlideProps) {
   return (
-    <article className="flex flex-1 flex-col items-center justify-center px-8 py-10 max-w-3xl mx-auto w-full text-center">
+    <article className="slide-article flex flex-1 flex-col items-center justify-center px-8 py-10 max-w-3xl mx-auto w-full text-center">
       {/* 1. The Quiet Honest Question */}
       <h2
         className="stagger-1 slide-active text-lg md:text-xl font-medium text-[var(--text-secondary)] mb-8"

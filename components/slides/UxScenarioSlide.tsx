@@ -64,11 +64,12 @@ export default function UxScenarioSlide({ content }: UxScenarioSlideProps) {
 
   return (
     <article
-      className="flex flex-1 flex-col items-center justify-between px-6 py-4"
+      className="slide-article flex flex-1 flex-col items-center justify-between px-6 py-4"
       style={{ width: '100%', height: '100%', position: 'relative' }}
     >
       {/* ---- TOP HEADER ---- */}
       <div
+        className="ux-scenario-header"
         style={{
           width: '100%',
           maxWidth: 780,

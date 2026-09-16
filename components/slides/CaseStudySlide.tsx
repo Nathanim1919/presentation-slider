@@ -11,7 +11,7 @@ export default function CaseStudySlide({ content }: CaseStudySlideProps) {
   const takeawayText = content.takeaway || content.insight;
 
   return (
-    <article className="flex flex-1 items-center justify-center px-8 py-6">
+    <article className="slide-article flex flex-1 flex-col items-center justify-center px-8 py-6">
       <div
         style={{
           maxWidth: 820,

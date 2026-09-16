@@ -15,7 +15,7 @@ export default function DesignInternetSlide({ content }: DesignInternetSlideProp
   const activeCat = categories[activeCategoryIndex] || categories[0];
 
   return (
-    <article className="flex flex-1 flex-col items-center justify-between px-6 py-5 max-w-6xl mx-auto w-full overflow-hidden">
+    <article className="slide-article flex flex-1 flex-col items-center justify-between px-6 py-5 max-w-6xl mx-auto w-full overflow-hidden">
       {/* 1. Header */}
       <div className="w-full text-center">
         <h2

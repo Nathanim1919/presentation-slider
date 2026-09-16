@@ -8,7 +8,7 @@ interface ProductTeardownSlideProps {
 
 export default function ProductTeardownSlide({ content }: ProductTeardownSlideProps) {
   return (
-    <article className="flex flex-1 items-center justify-center px-8 py-6">
+    <article className="slide-article flex flex-1 items-center justify-center px-8 py-6">
       <div style={{ maxWidth: 750, width: '100%' }}>
         {/* Label */}
         <span

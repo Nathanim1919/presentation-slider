@@ -8,7 +8,7 @@ interface PrototypeSlideProps {
 
 export default function PrototypeSlide({ content }: PrototypeSlideProps) {
   return (
-    <article className="flex flex-1 flex-col items-center justify-center px-8 text-center">
+    <article className="slide-article flex flex-1 flex-col items-center justify-center px-8 text-center">
       {content.principle && (
         <p
           className="stagger-1 slide-active"

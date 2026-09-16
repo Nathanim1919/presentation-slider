@@ -17,7 +17,7 @@ export default function DesignMasterySlide({ content }: DesignMasterySlideProps)
   const activePrinciple = content.principles[activeIndex] || content.principles[0];
 
   return (
-    <article className="flex flex-1 flex-col items-center justify-between px-8 py-6 max-w-6xl mx-auto w-full overflow-hidden">
+    <article className="slide-article flex flex-1 flex-col items-center justify-between px-8 py-6 max-w-6xl mx-auto w-full overflow-hidden">
       {/* 1. Header & The Visual Growth Loop */}
       <div className="w-full flex flex-col items-center text-center">
         <h2
@@ -88,7 +88,7 @@ export default function DesignMasterySlide({ content }: DesignMasterySlideProps)
       </div>
 
       {/* 2. Step Navigation Pills / Stepper Controls */}
-      <div className="w-full flex items-center justify-between mt-1 mb-3">
+      <div className="design-mastery-controls w-full flex items-center justify-between mt-1 mb-3">
         <div className="flex items-center gap-1.5 sm:gap-2">
           {content.principles.map((p, idx) => {
             const isCurrent = currentStep === idx + 1;

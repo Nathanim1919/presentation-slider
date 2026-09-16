@@ -9,7 +9,7 @@ interface IntroJourneySlideProps {
 
 export default function IntroJourneySlide({ content }: IntroJourneySlideProps) {
   return (
-    <article className="flex flex-1 flex-col items-center justify-center px-8 py-10 max-w-4xl mx-auto w-full text-center">
+    <article className="slide-article flex flex-1 flex-col items-center justify-center px-8 py-10 max-w-4xl mx-auto w-full text-center">
       {/* 1. Subtle Label & Clean Heading */}
       <span
         className="stagger-1 slide-active text-xs font-mono uppercase tracking-widest text-[var(--text-tertiary)] mb-3 block"

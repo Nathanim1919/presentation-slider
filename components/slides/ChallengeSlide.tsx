@@ -77,7 +77,7 @@ export default function ChallengeSlide({ content }: ChallengeSlideProps) {
 
   return (
     <article
-      className="flex flex-1 flex-col items-center justify-center px-8"
+      className="slide-article flex flex-1 flex-col items-center justify-center px-8"
       onClick={() => advance()}
       style={{ cursor: phase !== 'reveal' ? 'pointer' : 'default' }}
     >
@@ -187,8 +187,10 @@ export default function ChallengeSlide({ content }: ChallengeSlideProps) {
                   gap: 'var(--space-4)',
                   alignItems: 'flex-start',
                 }}
+                className="challenge-q-row"
               >
                 <span
+                  className="challenge-q-label"
                   style={{
                     fontSize: 'var(--text-small)',
                     fontWeight: 700,

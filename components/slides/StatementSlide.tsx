@@ -8,7 +8,7 @@ interface StatementSlideProps {
 
 export default function StatementSlide({ content }: StatementSlideProps) {
   return (
-    <article className="flex flex-1 flex-col items-center justify-center px-8 text-center">
+    <article className="slide-article flex flex-1 flex-col items-center justify-center px-8 text-center">
       <blockquote
         className="stagger-1 slide-active"
         style={{
