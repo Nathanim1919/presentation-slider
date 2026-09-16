@@ -134,6 +134,7 @@ export default function PresentationShell({
     >
       {/* ---- HEADER ---- */}
       <header
+        className="shell-header"
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -185,11 +186,12 @@ export default function PresentationShell({
             <span>WORKSHOPS</span>
           </Link>
 
-          <span style={{ color: 'var(--border-default)' }} aria-hidden="true">
+          <span className="hide-mobile" style={{ color: 'var(--border-default)' }} aria-hidden="true">
             /
           </span>
 
           <h1
+            className="hide-mobile"
             style={{
               fontSize: 'var(--text-small)',
               fontWeight: 500,
@@ -328,6 +330,7 @@ export default function PresentationShell({
 
       {/* ---- CONTENT AREA ---- */}
       <main
+        className="shell-main"
         style={{
           flex: 1,
           display: 'flex',
