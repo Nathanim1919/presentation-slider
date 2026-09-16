@@ -482,7 +482,1205 @@ Good design isn’t artistic lightning — it is a repeatable, six-step engineer
 
 ---
 
-# 🎤 SLIDE 27 — THREE LEVELS OF DESIGN (THE TRIAD)
+# ═══════════════════════════════════════════════════════════════
+# 🧩 LIVE PRODUCT BUILD — EVENT RESCUE
+# ═══════════════════════════════════════════════════════════════
+#
+# TOTAL TIME: ~10–12 minutes
+#
+# This section sits between the design challenge/process slides
+# and the final "Three Levels / Become Great / Design Internet" slides.
+#
+# The workshop flow is:
+#   ...Design Challenge → Design Process →
+#   ⟹ LIVE PRODUCT BUILD (this section) →
+#   ⟹ REFLECTION →
+#   Three Levels → Become Great → Design Internet → Closing
+#
+# You need THREE screens:
+#   Screen 1: The presentation slides
+#   Screen 2: This document (presenter notes)
+#   Screen 3: Excalidraw (blank canvas, ready to draw)
+#
+# ═══════════════════════════════════════════════════════════════
+
+---
+
+# ✅ EXCALIDRAW BUILD CHECKLIST
+
+*Scan this while presenting. Check off each step as you complete it.*
+
+```
+[ ] 01  Problem           — Concert + 5 friends + time pressure
+[ ] 02  User              — Alex + goal + context + frustrations
+[ ] 03  Success           — "Everyone knows what to do"
+[ ] 04  Journey           — Plan → Invite → Coordinate → Travel → Meet → Enter
+[ ] 05  Pain points       — Friend late → "What now?"
+[ ] 06  How Might We      — Core problem statement
+[ ] 07  Solution ideas    — ETA / map / alerts / status / chat
+[ ] 08  Core experience   — Join → Share → See → Detect → Respond → Arrive
+[ ] 09  User flow         — Home → Create/Join → Status → Alert → Resolve
+[ ] 10  Wireframes        — Home / Event / Group Status / Problem (4 screens)
+[ ] 11  Interaction       — Before/After status change
+[ ] 12  States            — Default / Warning / Critical / Action / Resolved
+[ ] 13  Edge cases        — Offline / location denied / time change
+[ ] 14  Product thinking  — User × Business × Technology triangle
+[ ] 15  Success metrics   — Arrival rate / join time / problems resolved
+[ ] 16  Test              — Audience role-play task
+[ ] 17  Iterate           — Version 1 → Test → Problem → Version 2
+```
+
+---
+
+# 📋 EXCALIDRAW — WHAT I SHOULD DRAW (Quick Reference)
+
+| Step | What to draw |
+|------|-------------|
+| 01 Problem | "Concert tonight" + 5 stick figures + "40 min" + late friend circled |
+| 02 User | Box: "Alex" + Goal + Context bullets + Frustration quotes |
+| 03 Success | Box: "SUCCESS: Everyone knows what to do, where to go, and whether the plan changed" |
+| 04 Journey | Vertical flow: PLAN → INVITE → COORDINATE → GET READY → TRAVEL → MEET → ENTER |
+| 05 Pain | Branch off TRAVEL: 🚨 FRIEND IS LATE → WHAT NOW? + pain point annotations |
+| 06 HMW | Box: "How might we help a group know if everyone is on track?" |
+| 07 Ideas | Scatter around HMW: group map, shared ETA, alerts, status, chat, route |
+| 08 Core | Flow: JOIN → SHARE STATUS → SEE GROUP → DETECT PROBLEM → RESPOND → ARRIVE |
+| 09 Flow | Decision tree: HOME → CREATE/JOIN → STATUS → [ON TRACK? YES/NO] → branches |
+| 10 Wireframes | 4 rough phone rectangles: Home, Event, Group Status, Problem |
+| 11 Interaction | Two side-by-side lists: BEFORE (all ✓) and AFTER (one ⚠) |
+| 12 States | 5 labeled boxes: Default → Warning → Critical → Action → Resolved |
+| 13 Edge cases | "What if…?" questions with X marks |
+| 14 Product | Triangle: USER — BUSINESS — TECHNOLOGY with "PRODUCT" in center |
+| 15 Metrics | 2–3 bullet metrics below the triangle |
+| 16 Test | "Task: You're going to a concert. Sam is late. What do you do?" |
+| 17 Iterate | VERSION 1 → TEST → PROBLEM FOUND → VERSION 2 (with crossed-out element) |
+
+---
+
+# ⏱ TIMING GUIDE
+
+| Step | Topic | Time |
+|------|-------|------|
+| 01 | The Problem | 1:00 |
+| 02 | Define the User | 0:45 |
+| 03 | Define Success | 0:30 |
+| 04 | Map the Journey | 1:00 |
+| 05 | Pain Points | 1:00 |
+| 06 | How Might We | 0:45 |
+| 07 | Solution Ideas | 1:00 |
+| 08 | Core Experience | 0:45 |
+| 09 | User Flow | 1:00 |
+| 10 | Wireframes | 2:00 |
+| 11 | Interaction Design | 0:45 |
+| 12 | States | 1:00 |
+| 13 | Edge Cases | 0:45 |
+| 14 | Product Thinking | 1:00 |
+| 15 | Success Metrics | 0:30 |
+| 16 | Test | 0:45 |
+| 17 | Iterate | 0:30 |
+| **TOTAL** | | **~13 min** |
+
+---
+
+# 🎤 SLIDE 27 — TRANSITION INTO LIVE BUILD
+
+Alright. We've covered UI, UX, product design, real-world case studies, interaction states, and you've even done your own design challenge.
+
+Now I want to do something different.
+
+We're going to **build a product together. Right now. Live.**
+
+Not in Figma. Not in code. We're going to use Excalidraw — a simple whiteboard — because the tool doesn't matter.
+
+What matters is the *thinking.*
+
+We're going to go from a messy, real-world problem all the way to a testable product concept. And we're going to do it in about ten minutes.
+
+*(Switch to Excalidraw on Screen 3. Show a blank canvas.)*
+
+Here's the rule: **We are not designing screens first. We are designing an experience around a real problem.**
+
+Let's go.
+
+---
+
+---
+
+# 🧩 PRODUCT BUILD — STEP 01: THE PROBLEM
+
+**⏱ Time: 1 minute**
+
+## What the audience sees
+
+The presentation slide shows the scenario setup. Then I switch to Excalidraw and start drawing.
+
+## What I should say
+
+"Here's the situation. You and four friends are going to a concert tonight. You're excited. Tickets are bought. The concert starts in 40 minutes.
+
+But here's the thing: One friend is across town. Another hasn't even left their house yet. Someone else texted the group chat 'where are we meeting?' ten minutes ago and nobody answered.
+
+Quick question for everyone — **what would you normally do in this situation?**"
+
+*(Pause. Let 2-3 people answer in the chat or unmute.)*
+
+"Right — you'd blow up the group chat. You'd call everyone. You'd panic a little. And somehow, maybe, you'd get there.
+
+Now here's the key insight: **We're not starting with an app. We're starting with the problem.**"
+
+## What I do in Excalidraw
+
+1. Write large text: **"CONCERT TONIGHT"**
+2. Draw 5 rough stick figures in a cluster
+3. Write **"40 minutes"** with a rough clock/circle
+4. Draw one stick figure separated from the group, label it **"across town"**
+5. Draw another with **"hasn't left yet"**
+6. Circle the gap between the separated friends and the group — label it **"THE PROBLEM"**
+
+## Audience question
+
+"What would you normally do in this situation?"
+
+## Expected answers
+
+- "Text the group chat"
+- "Call everyone"
+- "Share my location"
+- "Just go and hope everyone shows up"
+- "Assign one person to coordinate"
+
+## What I am teaching
+
+Product design begins with understanding a real human problem — not with opening a design tool and drawing rectangles.
+
+## Key sentence
+
+> "We don't start with a screen. We start with a situation."
+
+## Transition
+
+"Good. We have a problem. But who exactly are we solving it for?"
+
+## Connection to earlier concepts
+
+**Earlier (Slide 03):** "Why does Uber feel easy?" → We showed that design starts with a need, not a screen.
+**Now:** We're doing exactly that — starting with the need before any interface.
+
+---
+
+---
+
+# 🧩 PRODUCT BUILD — STEP 02: DEFINE THE USER
+
+**⏱ Time: 45 seconds**
+
+## What the audience sees
+
+A simple user profile area appearing on the Excalidraw canvas, to the right of the problem area.
+
+## What I should say
+
+"We need to know who we're designing for. Not 'everyone.' One specific person in one specific situation.
+
+Meet Alex. Alex is going to the concert tonight with four friends. Let me write down what we know about Alex's world right now."
+
+## What I do in Excalidraw
+
+1. Draw a box labeled **"USER"**
+2. Write: **"Alex — going to the concert with 4 friends"**
+3. Below, write **"GOAL"**: "Get to the event together without chaos"
+4. Below, write **"CONTEXT"** with bullets:
+   - Running late
+   - Multiple people
+   - Different locations
+   - Limited time
+   - Uncertain transportation
+5. Below, write **"FRUSTRATIONS"** with quotes:
+   - "Where is everyone?"
+   - "When should I leave?"
+   - "Where are we meeting?"
+   - "Are we still going together?"
+
+## Audience question
+
+*(No direct question — this is a demonstration moment.)*
+
+## What I am teaching
+
+You don't design for "users." You design for a specific person, in a specific moment, with a specific goal and specific frustrations. This connects directly to the Personas concept from earlier.
+
+## Key sentence
+
+> "We're not designing for everyone. We're designing around a specific situation."
+
+## Transition
+
+"We know who Alex is and what Alex is dealing with. But before we build anything, we need to answer one question: what does success actually look like?"
+
+## Connection to earlier concepts
+
+**Earlier (Slide 11):** UX Personas — understanding who the user is, their goals, fears, and context.
+**Now:** We're building a persona live, but keeping it practical and situation-specific instead of a formal template.
+
+---
+
+---
+
+# 🧩 PRODUCT BUILD — STEP 03: DEFINE SUCCESS
+
+**⏱ Time: 30 seconds**
+
+## What the audience sees
+
+A clear success statement appears on the canvas.
+
+## What I should say
+
+"Before we design any features, let me ask you something that most people skip:
+
+**What does success look like?**
+
+Not 'what features should the app have.' Not 'what screens do we need.' But — if this product works perfectly, what actually happens?"
+
+*(Brief pause.)*
+
+"Success for Alex looks like this: **Everyone knows what to do, where to go, and whether the plan has changed.**
+
+A product needs an outcome. We don't build features simply because they sound useful. Every feature should serve this outcome."
+
+## What I do in Excalidraw
+
+1. Draw a box labeled **"SUCCESS"**
+2. Write inside: **"Everyone knows what to do, where to go, and whether the plan has changed."**
+3. Draw a subtle arrow from the USER box to the SUCCESS box
+
+## What I am teaching
+
+Products need a measurable, describable outcome before you think about features. This prevents feature creep and keeps the team aligned.
+
+## Key sentence
+
+> "A product needs an outcome. We don't build features because they sound useful."
+
+## Transition
+
+"Now that we know who Alex is and what success looks like — let's map out what actually happens in Alex's journey."
+
+---
+
+---
+
+# 🧩 PRODUCT BUILD — STEP 04: MAP THE USER JOURNEY
+
+**⏱ Time: 1 minute**
+
+## What the audience sees
+
+A vertical flow diagram appears on the canvas, showing the journey from planning to entering the event.
+
+## What I should say
+
+"Let's map what Alex actually goes through. Not what screens they see — but what *happens in their real life* as they try to get to this concert.
+
+The journey looks like this:"
+
+*(Draw the flow step by step, talking as you draw.)*
+
+"Plan the outing. Invite friends. Coordinate — who's coming, when, where to meet. Get ready. Travel. Meet up. Enter the event.
+
+On paper, this looks clean and simple. But we all know real life isn't a clean diagram."
+
+*(Add the complication.)*
+
+"Right here — during travel — something goes wrong. A friend is late. And now the whole plan is uncertain. What do we do? Do we wait? Do we go in? Do we message them?"
+
+## What I do in Excalidraw
+
+1. Create a vertical flow in a new area of the canvas:
+   ```
+   PLAN
+    ↓
+   INVITE FRIENDS
+    ↓
+   COORDINATE
+    ↓
+   GET READY
+    ↓
+   TRAVEL
+    ↓
+   MEET
+    ↓
+   ENTER EVENT
+   ```
+2. Then add a branch off TRAVEL:
+   ```
+   TRAVEL
+      ↓
+   🚨 FRIEND IS LATE
+      ↓
+   WHAT NOW?
+   ```
+3. Circle the complication in red/orange
+
+## Audience question
+
+"Where should our product help? Which of these moments is the most painful?"
+
+## Expected answers
+
+- "During travel — when things are going wrong"
+- "The coordination part — knowing who's where"
+- "The meeting point — when it's unclear"
+- "When someone is late — that's when panic starts"
+
+## What I am teaching
+
+UX is about the whole journey, not a collection of screens. The product should solve real friction points in the journey, not just digitize existing steps.
+
+## Key sentence
+
+> "A screen tells us what exists at one moment. A journey tells us what the user actually goes through."
+
+## Transition
+
+"You've just identified the pain points. Let me mark them."
+
+## Connection to earlier concepts
+
+**Earlier (Slide 09):** The Uber Journey — "One ride. Eight moments of truth."
+**Now:** We're building our own journey map, and about to find our own friction points — just like we did with Uber.
+
+---
+
+---
+
+# 🧩 PRODUCT BUILD — STEP 05: IDENTIFY PAIN POINTS
+
+**⏱ Time: 1 minute**
+
+## What the audience sees
+
+Pain point annotations appear around the journey, with the core problem being highlighted.
+
+## What I should say
+
+"Let me annotate the real pain points that Alex experiences during this journey:
+
+- Don't know where friends are
+- Don't know when to leave
+- Meeting point is unclear
+- Someone is delayed and nobody knows
+- Transportation plans change
+- Communication is scattered across texts, calls, and group chats
+
+Sound familiar? This is basically every time you've tried to coordinate going somewhere with friends.
+
+Now here's the critical move: **We should not try to solve everything.** That's how bad products get made — they try to do everything and end up doing nothing well.
+
+Let's narrow it down to one core problem."
+
+*(Write the core problem.)*
+
+"The group doesn't know whether everyone is on track to arrive together."
+
+## What I do in Excalidraw
+
+1. Add annotations/sticky notes around the journey at pain points:
+   - "Don't know where friends are"
+   - "When to leave?"
+   - "Meeting point unclear"
+   - "Someone delayed"
+   - "Transport changes"
+   - "Scattered communication"
+2. Draw a large box labeled **"CORE PROBLEM"**
+3. Write inside: **"The group doesn't know whether everyone is on track to arrive together."**
+
+## What I am teaching
+
+Product design requires narrowing. You can't solve every problem. The "How Might We" framework helps you focus on one solvable, meaningful problem.
+
+## Key sentence
+
+> "Narrowing the problem is what makes product design manageable."
+
+## Transition
+
+"Now let's turn this problem into a question we can actually design around."
+
+## Connection to earlier concepts
+
+**Earlier (Slide 10):** Where the Uber experience breaks — we identified friction points at steps 3, 4, 6, 7.
+**Now:** We're doing the same thing for our own product — finding where friction lives in the journey.
+
+---
+
+---
+
+# 🧩 PRODUCT BUILD — STEP 06: HOW MIGHT WE
+
+**⏱ Time: 45 seconds**
+
+## What the audience sees
+
+A "How Might We" statement appears prominently on the canvas.
+
+## What I should say
+
+"In product design, there's a technique called 'How Might We.' It turns a problem into an open-ended question that invites solutions without jumping to one too early.
+
+Our 'How Might We' is:
+
+**How might we help a group know whether everyone is on track — and what to do when someone falls behind?**
+
+Notice the structure. It's not 'build an app that shows a map.' It's not 'add a group chat feature.' It's open enough to explore, but focused enough to be useful."
+
+## What I do in Excalidraw
+
+1. Draw a prominent box labeled **"HOW MIGHT WE..."**
+2. Write: **"How might we help a group know whether everyone is on track — and what to do when someone falls behind?"**
+3. Draw an arrow from CORE PROBLEM to this box
+
+## What I am teaching
+
+The "How Might We" framework is a real design tool used at companies like Google, IDEO, and Spotify. It reframes problems as opportunities.
+
+## Key sentence
+
+> "A good 'How Might We' is open enough to explore, but focused enough to be useful."
+
+## Transition
+
+"Alright, now — what could we actually build? Let's brainstorm."
+
+---
+
+---
+
+# 🧩 PRODUCT BUILD — STEP 07: EXPLORE SOLUTIONS
+
+**⏱ Time: 1 minute**
+
+## What the audience sees
+
+Multiple solution ideas scattered around the HMW statement on the canvas.
+
+## What I should say
+
+"What could we build to answer this question? Don't filter yourself yet. What ideas come to mind?
+
+Drop them in the chat!"
+
+*(Wait for 15-20 seconds. Read a few responses.)*
+
+"Great. Let me add some of mine too."
+
+*(Draw ideas around the HMW box.)*
+
+"Group map. Shared ETA. Meeting point pin. Automatic alerts when someone falls behind. An 'I'm leaving now' status button. Late warning notifications. Group chat. Route suggestions.
+
+Now here's where most people go wrong: **they pick the first idea that sounds good and start building it.**
+
+We don't do that. We ask: which of these ideas gives us the most user value, with the most simplicity, and is actually feasible to build?"
+
+## What I do in Excalidraw
+
+1. Scatter idea bubbles around the HMW box:
+   - "Group map"
+   - "Shared ETA"
+   - "Meeting point"
+   - "Auto alerts"
+   - "'I'm leaving' status"
+   - "Late warning"
+   - "Group chat"
+   - "Route suggestions"
+2. Draw loose connecting lines to the HMW box
+3. Put a small star or checkmark next to 2–3 strongest ideas (Shared ETA, Auto alerts, Status)
+
+## Audience question
+
+"What could we build to answer this?"
+
+## Expected answers
+
+- "A group map showing everyone's location"
+- "Automatic ETA updates"
+- "Push notifications when someone is running late"
+- "A status board"
+- "A shared meeting point"
+
+## What I am teaching
+
+Ideation should be divergent before convergent. Generate many ideas, then evaluate them — don't jump to the first thing that sounds reasonable.
+
+## Key sentence
+
+> "We don't immediately choose the first idea. We generate options, then evaluate."
+
+## Transition
+
+"Let's combine the strongest ideas into one focused experience."
+
+## Connection to earlier concepts
+
+**Earlier (Slide 26):** "IDEATE — Sketch ten rough ideas before picking the best one. Diverge before you converge."
+**Now:** We're doing exactly that — diverging with many ideas before converging on the strongest ones.
+
+---
+
+---
+
+# 🧩 PRODUCT BUILD — STEP 08: CORE PRODUCT EXPERIENCE
+
+**⏱ Time: 45 seconds**
+
+## What the audience sees
+
+A focused product experience flow appears on the canvas — the core loop of the product.
+
+## What I should say
+
+"From all those ideas, here's the focused experience we're going to build. I'm calling it **Group Arrival.**
+
+The product lets everyone:
+1. Join the event
+2. Share their current status or ETA
+3. See whether the group is on track
+4. Get alerted when someone is falling behind
+5. Decide what to do together
+
+That's the product. Not a list of features — a connected experience."
+
+## What I do in Excalidraw
+
+1. Create a clean vertical flow labeled **"CORE EXPERIENCE: GROUP ARRIVAL"**:
+   ```
+   JOIN
+    ↓
+   SHARE STATUS
+    ↓
+   SEE GROUP
+    ↓
+   DETECT PROBLEM
+    ↓
+   RESPOND
+    ↓
+   ARRIVE
+   ```
+2. Draw a box around the entire flow
+
+## What I am teaching
+
+A product experience is different from a feature list. Features are disconnected capabilities. An experience is a connected sequence that guides the user toward an outcome.
+
+## Key sentence
+
+> "We now have a product experience — not a list of features."
+
+## Transition
+
+"Now let's turn this experience into an actual user flow — with decisions and branches."
+
+---
+
+---
+
+# 🧩 PRODUCT BUILD — STEP 09: USER FLOW
+
+**⏱ Time: 1 minute**
+
+## What the audience sees
+
+A decision-tree style user flow with branches appears on the canvas.
+
+## What I should say
+
+"This is one of the most important moments in product design. We're turning that experience into a flow — with real decisions.
+
+The user opens the app. They see their event. They create one or join one. They see the group status. And here's the critical decision point:
+
+**Is everyone on track?**
+
+If yes — great, just wait and enjoy the anticipation. If no — an alert appears. They can view the problem, send a message, suggest an alternative, and the group resolves the situation.
+
+This is where products become real. A screen tells you what exists at one moment. **A flow tells you what the user can actually do.**"
+
+## What I do in Excalidraw
+
+1. Draw the full decision-tree flow:
+   ```
+   HOME
+    ↓
+   CREATE / JOIN EVENT
+    ↓
+   EVENT DETAILS
+    ↓
+   GROUP STATUS
+    ↓
+   [EVERYONE ON TRACK?]
+         /       \
+       YES        NO
+        ↓          ↓
+      WAIT       ALERT
+                   ↓
+              VIEW PROBLEM
+                   ↓
+             HELP / MESSAGE
+                   ↓
+                RESOLVE
+   ```
+2. Use diamond shape for the decision point
+3. Draw the YES path shorter, the NO path longer
+
+## What I am teaching
+
+The difference between screens and flows. Screens are static. Flows capture decisions, branches, and the real logic of how a product works.
+
+## Key sentence
+
+> "A screen tells us what exists at one moment. A flow tells us what the user can actually do."
+
+## Transition
+
+"Now — and only now — are we ready to draw screens."
+
+## Connection to earlier concepts
+
+**Earlier (Slide 11):** User Flows — "How do users move through the system? Flows expose dead ends, unnecessary steps, and hidden complexity."
+**Now:** We just built a real user flow, and the audience can see how it exposes the decision logic behind every screen.
+
+---
+
+---
+
+# 🧩 PRODUCT BUILD — STEP 10: WIREFRAMES
+
+**⏱ Time: 2 minutes**
+
+## What the audience sees
+
+Four rough, low-fidelity phone wireframes appear on the canvas. No colors, no branding.
+
+## What I should say
+
+"NOW we draw screens. Not before. You'll notice something: after doing all that thinking, the screens practically design themselves. We already know what needs to be on each one.
+
+I'm going to keep these deliberately ugly. No colors. No logos. No gradients. Just structure.
+
+**Screen 1 — Home.** The user opens the app. They see their upcoming event, the time, and the group status at a glance. That's it. One screen, three pieces of information.
+
+**Screen 2 — Event.** They tap in. Event name, time, location, and their friends list. Who's confirmed? Who hasn't responded?
+
+**Screen 3 — Group Status.** This is the core screen. A list of friends, each with their ETA and status. A simple map or location indication. At a glance: is everyone on track?
+
+**Screen 4 — Problem.** 'Sam is 25 minutes behind.' What can you do? Message Sam, update the meeting plan, or wait. Clear actions."
+
+## What I do in Excalidraw
+
+1. Draw 4 rough phone rectangles side by side
+2. **Screen 1 — HOME:**
+   - "🎵 Concert Tonight"
+   - "8:00 PM"
+   - "4/5 on track"
+3. **Screen 2 — EVENT:**
+   - "Summer Concert"
+   - "8:00 PM · Central Park"
+   - Friend list: Alex ✓, Sara ✓, Daniel ✓, Sam ✓, Maya ?
+4. **Screen 3 — GROUP STATUS:**
+   - Alex — 10 min ✓
+   - Sara — 12 min ✓
+   - Daniel — 15 min ✓
+   - Sam — 13 min ✓
+   - (rough map circle)
+5. **Screen 4 — PROBLEM:**
+   - "⚠ Sam is 25 min behind"
+   - [Message Sam]
+   - [Update plan]
+   - [Wait for Sam]
+
+Label each screen with its name.
+
+## What I am teaching
+
+Wireframes come AFTER the thinking, not before. When you've done the problem, user, journey, and flow work, the screens almost design themselves. Also: low fidelity is intentional — it keeps the focus on structure, not aesthetics.
+
+## Key sentence
+
+> "After doing all that thinking, the screens practically design themselves."
+
+## Transition
+
+"We have screens. But they're static. What happens when the situation changes?"
+
+## Connection to earlier concepts
+
+**Earlier (Slide 05):** "What does a UI designer actually control?" — layout, typography, hierarchy.
+**Now:** We're building the raw structure first. The visual polish comes later. Design doesn't begin polished.
+
+---
+
+---
+
+# 🧩 PRODUCT BUILD — STEP 11: INTERACTION DESIGN
+
+**⏱ Time: 45 seconds**
+
+## What the audience sees
+
+A before/after comparison on the canvas showing a status change — from "everyone on track" to "someone is late."
+
+## What I should say
+
+"Let's pick one critical moment. Everyone is on track. The group status screen looks calm and green.
+
+Then Sam's ETA jumps from 13 minutes to 35 minutes. Something happened — traffic, late start, whatever.
+
+What should the product do?"
+
+*(Pause. Don't answer immediately. Let the audience think.)*
+
+"Don't answer yet. Look at the before and after."
+
+## What I do in Excalidraw
+
+1. Draw two side-by-side boxes labeled **"BEFORE"** and **"AFTER"**
+2. **BEFORE:**
+   ```
+   ✓ Alex       10 min
+   ✓ Sara       12 min
+   ✓ Daniel     15 min
+   ✓ Sam        13 min
+   ```
+3. **AFTER:**
+   ```
+   ✓ Alex       10 min
+   ✓ Sara       12 min
+   ✓ Daniel     15 min
+   ⚠ Sam        35 min
+   ```
+4. Circle Sam's row in the AFTER column
+5. Draw an arrow between them labeled "**WHAT SHOULD HAPPEN?**"
+
+## Audience question
+
+"What should the product do when Sam goes from 13 minutes to 35 minutes?"
+
+## Expected answers
+
+- "Send a notification to the group"
+- "Highlight Sam's status in yellow or red"
+- "Ask Sam what happened"
+- "Suggest the group go in and save Sam's spot"
+- "Show options for what to do next"
+
+## What I am teaching
+
+Interaction design isn't about animations and hover effects. It's about designing what happens when the state of the world changes. The product must respond to reality.
+
+## Key sentence
+
+> "We're not designing one perfect screen. We're designing what happens as reality changes."
+
+## Transition
+
+"That's interaction design. Now let's connect this to something we already covered — states."
+
+## Connection to earlier concepts
+
+**Earlier (Slide 07):** "UI communicates — even without words." The button hover/press states.
+**Now:** We're applying the same principle at the product level — the product's state communicates the situation.
+
+---
+
+---
+
+# 🧩 PRODUCT BUILD — STEP 12: DESIGN STATES
+
+**⏱ Time: 1 minute**
+
+## What the audience sees
+
+Five states appear on the canvas, connecting directly to the earlier button/loading/error state concepts.
+
+## What I should say
+
+"Remember earlier when we looked at the seven states of a button? Default, hover, focus, pressed, loading, success, disabled?
+
+The same principle applies at the product level. Our product isn't one screen. It's multiple states.
+
+**Default:** Everyone is on track. Green. Calm.
+
+**Warning:** One person is falling behind. Yellow. The product surfaces the change.
+
+**Critical:** The group might miss the event entirely. Red. The product escalates.
+
+**Action:** The product offers options — message, update plan, wait, go ahead.
+
+**Resolved:** The group has updated the plan. Everyone knows. Back to calm.
+
+**We don't design one perfect screen. We design what happens as reality changes.** That's exactly what we learned about button states — applied to the entire product."
+
+## What I do in Excalidraw
+
+1. Draw 5 boxes in a horizontal row, labeled:
+   - **DEFAULT** — "Everyone on track" (draw in green/calm)
+   - **WARNING** — "One person falling behind" (draw in yellow/orange)
+   - **CRITICAL** — "Group will miss event" (draw in red)
+   - **ACTION** — "Product offers options" (draw with action buttons)
+   - **RESOLVED** — "Plan updated" (draw in green again)
+2. Connect them with arrows showing the flow between states
+3. Write above: **"THE PRODUCT IS NOT ONE SCREEN. IT IS MANY STATES."**
+
+## What I am teaching
+
+State design applies at every level — from a single button to an entire product. This directly connects the micro-level (button states from Act VI) to the macro-level (product states).
+
+## Key sentence
+
+> "We don't design one perfect screen. We design what happens as reality changes."
+
+## Transition
+
+"We have a product that works in ideal conditions. Now let's deliberately break it."
+
+## Connection to earlier concepts
+
+**Earlier (Slides 20-23):** Button states, loading state, empty state, error state — "Every state is a conversation with the user's nervous system."
+**Now:** We're applying the same principle at the product scale. The product itself has states — and each state must be designed.
+
+---
+
+---
+
+# 🧩 PRODUCT BUILD — STEP 13: EDGE CASES
+
+**⏱ Time: 45 seconds**
+
+## What the audience sees
+
+"What if?" questions appear on the canvas with some crossed out or marked.
+
+## What I should say
+
+"Now let's deliberately break our product. Because real products live in messy reality.
+
+What if someone has no internet?
+
+What if someone doesn't share their location?
+
+What if the event time changes?
+
+What if someone leaves the group?
+
+What if two people are late?
+
+What if the user denies location permission?
+
+We can't solve all of these right now. But the fact that we're asking them? **That's the difference between a prototype and a product.**
+
+Let's pick one: What happens when someone doesn't share their location? Instead of showing an ETA, we show 'Status unknown — last updated 15 minutes ago.' The product still works. It degrades gracefully instead of breaking."
+
+## What I do in Excalidraw
+
+1. Write **"EDGE CASES"** as a header
+2. List the "What if?" questions:
+   - "No internet?"
+   - "No location sharing?"
+   - "Event time changes?"
+   - "Someone leaves group?"
+   - "Two people late?"
+   - "Location permission denied?"
+3. Circle one or two
+4. Write a quick resolution for one: "No location → 'Status unknown — last seen 15 min ago'"
+5. Cross out the others with a note: "Future iteration"
+
+## What I am teaching
+
+Edge cases are where products succeed or fail. Thinking about edge cases separates a prototype from a real product. You don't have to solve them all — but you must acknowledge them.
+
+## Key sentence
+
+> "Real products live in messy reality."
+
+## Transition
+
+"Now let's zoom way out from the canvas. We've been thinking about the user. But products don't exist in a vacuum."
+
+## Connection to earlier concepts
+
+**Earlier (Slide 29):** "As developers, you already think in edge cases — null values, empty arrays, timeout retries."
+**Now:** We're proving that product edge cases are the same discipline — just at a different scale.
+
+---
+
+---
+
+# 🧩 PRODUCT BUILD — STEP 14: PRODUCT THINKING
+
+**⏱ Time: 1 minute**
+
+## What the audience sees
+
+The User × Business × Technology triangle appears on the canvas.
+
+## What I should say
+
+"Let's zoom out. We've been focused on the user — Alex and friends trying to get to a concert. But products need more than user value.
+
+**User:** Does this actually help the group? Does it reduce their stress? Does it solve a real problem?
+
+**Business:** Why would someone use this? Would they pay for it? Would they come back next time they have an event? How does this product sustain itself?
+
+**Technology:** Can we actually build this? Real-time location sharing, ETA calculation, push notifications — these are engineering decisions.
+
+This is where product design becomes bigger than UI. A beautiful app that nobody pays for and that's too expensive to run isn't a product. It's a charity that shuts down in six months."
+
+## What I do in Excalidraw
+
+1. Draw a triangle:
+   ```
+              USER
+             /    \
+            /      \
+           / PRODUCT \
+          /          \
+   TECHNOLOGY ───── BUSINESS
+   ```
+2. Inside the triangle, write **"PRODUCT"**
+3. Label each corner:
+   - USER: "Does it help?"
+   - BUSINESS: "Is it sustainable?"
+   - TECHNOLOGY: "Can we build it?"
+
+## What I am teaching
+
+Product design is the intersection of user needs, business viability, and technical feasibility. This is the triad introduced earlier in the workshop, now applied to a real product.
+
+## Key sentence
+
+> "This is where product design becomes bigger than UI."
+
+## Transition
+
+"And if we ship this product — how would we even know if it's working?"
+
+## Connection to earlier concepts
+
+**Earlier (Slide 13):** "A Product Designer sits right at the intersection of The User, The Business, and The Technology."
+**Now:** We're applying that exact triad to the product we just built together.
+
+---
+
+---
+
+# 🧩 PRODUCT BUILD — STEP 15: SUCCESS METRICS
+
+**⏱ Time: 30 seconds**
+
+## What the audience sees
+
+A few success metrics appear below the product triangle.
+
+## What I should say
+
+"How would we know this product is actually helping?
+
+Not 'how many downloads did we get' — but how many groups actually arrived at their event together? How quickly did everyone join after the event was created? How many coordination problems were resolved through the product instead of through panicked phone calls?
+
+A product isn't successful because we built it. **It's successful because it creates an outcome.**"
+
+## What I do in Excalidraw
+
+1. Below the triangle, write **"HOW DO WE KNOW IT WORKS?"**
+2. Add 2-3 metrics:
+   - "% of groups arriving together"
+   - "Time from creation → everyone joined"
+   - "# coordination problems resolved"
+3. Underline one as the "north star" metric
+
+## What I am teaching
+
+Success metrics tie back to the success statement from Step 03. Products are measured by outcomes, not output.
+
+## Key sentence
+
+> "A product isn't successful because we built it. It's successful because it creates an outcome."
+
+## Transition
+
+"We have an idea. We have a flow. We have screens. But we still don't know if it actually works. So let's test it."
+
+---
+
+---
+
+# 🧩 PRODUCT BUILD — STEP 16: TEST
+
+**⏱ Time: 45 seconds**
+
+## What the audience sees
+
+A test scenario written on the canvas.
+
+## What I should say
+
+"We have an idea. A flow. Screens. States. But we still don't know whether it actually works.
+
+So let's test it right now. I need a volunteer — someone to act as the user.
+
+*(Pick someone from the chat or an unmuted person.)*
+
+Here's your task: **You're going to a concert with four friends. Sam is late. Show me — looking at these wireframes — what would you do?**
+
+*(Let them talk through it. Don't help immediately. Just listen.)*
+
+Where did you hesitate? What did you expect to happen? What information was missing?
+
+**That's why we test.** Every hesitation, every confused look, every 'wait, where do I go?' — that's a design insight you can't get from staring at your own wireframe."
+
+## What I do in Excalidraw
+
+1. Write **"TEST"** as a header
+2. Write the task: **"You're going to a concert. Sam is late. What do you do?"**
+3. After the volunteer responds, annotate any confusion or hesitation points on the wireframes
+4. Circle any area where the volunteer was confused
+
+## Audience question
+
+"You're going to a concert with four friends. Sam is late. What would you do in this app?"
+
+## Expected answers / behaviors
+
+- Volunteer looks for Sam's status first
+- Might not know where to find the "problem" screen
+- Might expect a notification rather than having to check manually
+- Might want to message Sam directly from the status screen
+
+## What I am teaching
+
+Usability testing reveals assumptions you didn't know you had. The product isn't finished until real humans have tried to use it.
+
+## Key sentence
+
+> "That's why we test. Every hesitation is a design insight."
+
+## Transition
+
+"Did you see the hesitation? That tells us something. Let's go back and fix it."
+
+## Connection to earlier concepts
+
+**Earlier (Slide 26):** "TEST — Usability testing, A/B experiments, real user data."
+**Now:** We just did a mini usability test live, and the audience experienced firsthand why testing matters.
+
+---
+
+---
+
+# 🧩 PRODUCT BUILD — STEP 17: ITERATE
+
+**⏱ Time: 30 seconds**
+
+## What the audience sees
+
+A Version 1 → Test → Problem → Version 2 flow, with something crossed out and changed.
+
+## What I should say
+
+"Did you see the hesitation? The volunteer expected to get a notification — but our design requires them to check manually. That's a design problem.
+
+So let's fix it."
+
+*(Go back to the wireframe. Cross something out. Change it.)*
+
+"Version 1: you have to check. Version 2: the product tells you proactively.
+
+**Design isn't getting it right the first time.** It's build, learn, change. That loop — that's the entire job."
+
+## What I do in Excalidraw
+
+1. Write the flow:
+   ```
+   VERSION 1
+        ↓
+   TEST
+        ↓
+   PROBLEM FOUND
+        ↓
+   VERSION 2
+   ```
+2. Go back to one of the wireframes and visibly cross out an element
+3. Write the improvement next to it
+4. Label it "V2"
+
+## What I am teaching
+
+Iteration is the core of design. Nobody gets it right the first time. The willingness to change based on evidence separates good products from mediocre ones.
+
+## Key sentence
+
+> "Design isn't getting it right the first time. It's build → learn → change."
+
+## Transition
+
+"Step back from Excalidraw with me for a moment. Look at what we just did."
+
+## Connection to earlier concepts
+
+**Earlier (Slide 26):** "SHIP & LEARN — Launch, measure, iterate — the product is never done."
+**Now:** We just experienced the iteration loop live. The product isn't done when you ship it — it's done when it works.
+
+---
+
+---
+
+# 🎤 SLIDE 28 — REFLECTION: LOOK WHAT WE JUST DID
+
+*(Switch back to the presentation slides from Excalidraw.)*
+
+Stop for a second and look at what we just did in ten minutes:
+
+```
+PROBLEM
+ ↓
+USER
+ ↓
+GOAL
+ ↓
+JOURNEY
+ ↓
+FLOW
+ ↓
+WIREFRAMES
+ ↓
+INTERACTION
+ ↓
+STATES
+ ↓
+EDGE CASES
+ ↓
+TEST
+ ↓
+ITERATE
+```
+
+We started with a messy real-world problem — five friends trying to get to a concert.
+
+We didn't start with a color palette.
+
+We didn't start with Figma.
+
+We didn't even start with a screen.
+
+**We started by understanding what someone was trying to accomplish.**
+
+And step by step, a product emerged. Not because we're geniuses. Because we followed a process.
+
+Every great product you use every day — Uber, Airbnb, Google Maps, YouTube — started exactly like this. Not with a polished mockup. With a messy whiteboard and a real problem.
+
+**That's product design.**
+
+---
+
+# 🎤 SLIDE 29 — THREE LEVELS OF DESIGN (THE TRIAD)
 
 Now let's pull all of this together into one clean mental checklist:
 
@@ -501,7 +1699,7 @@ UI designers ask level one. UI/UX designers ask levels one and two. Product desi
 
 ---
 
-# 🎤 SLIDE 28 — THEY'RE NOT SEPARATE WORLDS
+# 🎤 SLIDE 30 — THEY'RE NOT SEPARATE WORLDS
 
 And remember: these are not separate worlds or warring camps. 
 
@@ -515,7 +1713,7 @@ The best builders and engineers move up and down this stack seamlessly every sin
 
 ---
 
-# 🎤 SLIDE 29 — DESIGN × ENGINEERING: YOU'RE ALREADY HERE
+# 🎤 SLIDE 31 — DESIGN × ENGINEERING: YOU'RE ALREADY HERE
 
 And for all the engineers on this call, here is the secret:
 
@@ -531,7 +1729,7 @@ That IS design thinking! The vocabulary is slightly different, but the mindset i
 
 ---
 
-# 🎤 SLIDE 30 — THE FINAL THOUGHT
+# 🎤 SLIDE 32 — THE FINAL THOUGHT
 
 Which brings us to our final thought:
 
@@ -545,7 +1743,7 @@ Never settle for just making a screen look pretty.
 
 ---
 
-# 🎤 SLIDE 31 — HOW DO YOU BECOME GREAT AT DESIGN?
+# 🎤 SLIDE 33 — HOW DO YOU BECOME GREAT AT DESIGN?
 
 So how do you actually become great at design?
 
@@ -563,7 +1761,7 @@ Don't copy designs. Study decisions.
 
 ---
 
-# 🎤 SLIDE 32 — YOUR DESIGN INTERNET (CURATED TOOLKIT)
+# 🎤 SLIDE 34 — YOUR DESIGN INTERNET (CURATED TOOLKIT)
 
 Don’t hoard hundreds of bookmarks you’ll never open. Organize your design internet by the question you are trying to answer:
 
@@ -576,13 +1774,15 @@ Don’t hoard hundreds of bookmarks you’ll never open. Organize your design in
 
 ---
 
-# 🎤 SLIDE 33 — THANK YOU (CLOSING & QUESTIONS)
+# 🎤 SLIDE 35 — THANK YOU (CLOSING & QUESTIONS)
 
 To close out everything we’ve explored today:
 
 UI is what it looks like.  
 UX is how it works.  
 Product design is why it exists.
+
+And remember — you experienced that process firsthand today. We went from a problem to a product. From a messy concert night to a testable design. That's the process. That's how real products are made.
 
 Thank you all so much for your time today. My name is Nathanim Tadele — you can find my projects at nathanim.dev and on GitHub. 
 
@@ -599,3 +1799,71 @@ Feel free to unmute, raise your virtual hand in Google Meet, or drop your questi
 - **Product Design** is deciding where to place ATMs across the city, setting the transaction fees so the bank doesn't lose money, planning cash replenishment routes, and making sure customers trust the machine enough to deposit their paychecks.
 
 **UI is what it looks like. UX is how it works. Product design is why it exists.**"
+
+---
+
+# ═══════════════════════════════════════════════════════════════
+# 📌 CONCEPT CONNECTIONS — QUICK REFERENCE
+# ═══════════════════════════════════════════════════════════════
+#
+# Use this to remind yourself which earlier concepts reappear
+# during the live build.
+#
+# | Earlier concept | Where it reappears in the build |
+# |---|---|
+# | "A screen is not a product" (Slide 04) | Step 01: We start with a problem, not a screen |
+# | Personas (Slide 11) | Step 02: We build a user profile for Alex |
+# | User journeys (Slide 09) | Step 04: We map Alex's journey to the concert |
+# | Friction points (Slide 10) | Step 05: We identify pain points in the journey |
+# | "Think in flows, not screens" (Slide 11) | Step 09: We create the user flow with decisions |
+# | Button/UI states (Slides 20-23) | Step 12: We design product-level states |
+# | "Beautiful isn't enough" (Slide 06) | Step 10: Wireframes are ugly on purpose |
+# | User × Business × Technology (Slide 13) | Step 14: Product thinking triangle |
+# | Design process (Slide 26) | Steps 06-07: HMW and ideation directly from the process |
+# | Build → Test → Learn (Slide 26) | Steps 16-17: We test and iterate live |
+# | Edge cases / dev mindset (Slide 29) | Step 13: Edge cases mirror dev thinking |
+#
+# ═══════════════════════════════════════════════════════════════
+
+---
+
+# ═══════════════════════════════════════════════════════════════
+# 🗺 EXCALIDRAW CANVAS LAYOUT GUIDE
+# ═══════════════════════════════════════════════════════════════
+#
+# Organize the canvas in a 4×3 grid, left-to-right, top-to-bottom.
+# Each section should be clearly labeled with its step number.
+# DO NOT draw everything at once — reveal sections progressively.
+#
+# ┌─────────────┬─────────────┬──────────────┬─────────────┐
+# │ 01 PROBLEM  │ 02 USER     │ 03 SUCCESS   │ 04 JOURNEY  │
+# │ Concert +   │ Alex +      │ "Everyone    │ Plan →      │
+# │ 5 friends + │ Goal +      │ knows what   │ Travel →    │
+# │ time        │ Context     │ to do"       │ Meet        │
+# ├─────────────┬─────────────┬──────────────┬─────────────┤
+# │ 05 PAIN     │ 06 HMW      │ 07 IDEAS     │ 08 CORE     │
+# │ Points +    │ "How might  │ ETA / map /  │ Join →      │
+# │ Core        │ we..."      │ alerts /     │ Status →    │
+# │ Problem     │             │ status       │ Arrive      │
+# ├─────────────┬─────────────┬──────────────┬─────────────┤
+# │ 09 FLOW     │ 10 SCREENS  │ 11 STATES    │ 12 EDGE     │
+# │ Decision    │ Home / Event│ Default →    │ CASES       │
+# │ tree with   │ / Status /  │ Warning →    │ What if...? │
+# │ branches    │ Problem     │ Resolved     │             │
+# ├─────────────┬─────────────┬──────────────┬─────────────┤
+# │ 13 PRODUCT  │ 14 TEST     │ 15 ITERATE   │             │
+# │ User ×      │ "Sam is     │ V1 → Test →  │             │
+# │ Business ×  │ late. What  │ Problem →    │             │
+# │ Technology  │ do you do?" │ V2           │             │
+# └─────────────┴─────────────┴──────────────┴─────────────┘
+#
+# TIPS:
+# - Start with a blank canvas. Build section by section.
+# - Use Excalidraw's hand-drawn style — rough boxes, arrows, circles.
+# - Keep labels large enough for screen sharing.
+# - Use color sparingly: green for success, orange/yellow for warnings,
+#   red for critical. Everything else is black/white.
+# - If you pre-build any elements, keep them off-canvas and drag them
+#   in at the right moment.
+#
+# ═══════════════════════════════════════════════════════════════

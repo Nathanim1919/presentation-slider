@@ -464,36 +464,36 @@ export const uiUxSlides: Slide[] = [
     },
   },
 
-  {
-    id: 'act5-youtube',
-    type: 'case_study',
-    title: 'YouTube: helping decisions',
-    act: ACT.V,
-    content: {
-      product: 'YouTube',
-      context:
-        'YouTube has billions of videos. The product design challenge is reducing infinite choice to a handful of perfect-feeling suggestions.',
-      problem: 'How do you help someone decide what to watch in under 3 seconds?',
-      steps: [
-        {
-          action: 'UI decision',
-          result:
-            'Thumbnail design is a discipline. The right thumbnail communicates value in under 0.1 seconds.',
-        },
-        {
-          action: 'UX decision',
-          result:
-            'Progress bars on thumbnails. One small element that turns "I should watch this" into "I need to finish this."',
-        },
-        {
-          action: 'Product decision',
-          result:
-            'Autoplay with a 5-second delay. Controversial UX — but a huge driver of watch time. A product decision that overrode pure UX logic.',
-        },
-      ],
-      insight: 'The product goal (watch time) sometimes conflicts with the user goal (control). Product design navigates that tension.',
-    },
-  },
+  // {
+  //   id: 'act5-youtube',
+  //   type: 'case_study',
+  //   title: 'YouTube: helping decisions',
+  //   act: ACT.V,
+  //   content: {
+  //     product: 'YouTube',
+  //     context:
+  //       'YouTube has billions of videos. The product design challenge is reducing infinite choice to a handful of perfect-feeling suggestions.',
+  //     problem: 'How do you help someone decide what to watch in under 3 seconds?',
+  //     steps: [
+  //       {
+  //         action: 'UI decision',
+  //         result:
+  //           'Thumbnail design is a discipline. The right thumbnail communicates value in under 0.1 seconds.',
+  //       },
+  //       {
+  //         action: 'UX decision',
+  //         result:
+  //           'Progress bars on thumbnails. One small element that turns "I should watch this" into "I need to finish this."',
+  //       },
+  //       {
+  //         action: 'Product decision',
+  //         result:
+  //           'Autoplay with a 5-second delay. Controversial UX — but a huge driver of watch time. A product decision that overrode pure UX logic.',
+  //       },
+  //     ],
+  //     insight: 'The product goal (watch time) sometimes conflicts with the user goal (control). Product design navigates that tension.',
+  //   },
+  // },
 
   /* ============================================================
      ACT VI — INTERACTION STATES  (slides 20-23)
