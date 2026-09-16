@@ -433,36 +433,36 @@ export const uiUxSlides: Slide[] = [
     },
   },
 
-  {
-    id: 'act5-google-maps',
-    type: 'case_study',
-    title: 'Google Maps: system state',
-    act: ACT.V,
-    content: {
-      product: 'Google Maps',
-      context:
-        'Google Maps always tells you what\'s happening — even when it doesn\'t know. It\'s a masterclass in communicating system state.',
-      problem: 'How do you make GPS feel human, not robotic?',
-      steps: [
-        {
-          action: 'UI decision',
-          result:
-            'The pulsing blue dot. Real-time animation makes GPS feel alive, not a static pin.',
-        },
-        {
-          action: 'UX decision',
-          result:
-            '"Recalculating…" — acknowledges the mistake gracefully, removes blame, immediately shows a path forward.',
-        },
-        {
-          action: 'Product decision',
-          result:
-            'Offline maps. Solves a real user problem (data on the road) while keeping users inside the Google ecosystem — retention through utility.',
-        },
-      ],
-      insight: 'Every loading state, error state, and empty state is a design decision. Maps makes all of them feel intentional.',
-    },
-  },
+  // {
+  //   id: 'act5-google-maps',
+  //   type: 'case_study',
+  //   title: 'Google Maps: system state',
+  //   act: ACT.V,
+  //   content: {
+  //     product: 'Google Maps',
+  //     context:
+  //       'Google Maps always tells you what\'s happening — even when it doesn\'t know. It\'s a masterclass in communicating system state.',
+  //     problem: 'How do you make GPS feel human, not robotic?',
+  //     steps: [
+  //       {
+  //         action: 'UI decision',
+  //         result:
+  //           'The pulsing blue dot. Real-time animation makes GPS feel alive, not a static pin.',
+  //       },
+  //       {
+  //         action: 'UX decision',
+  //         result:
+  //           '"Recalculating…" — acknowledges the mistake gracefully, removes blame, immediately shows a path forward.',
+  //       },
+  //       {
+  //         action: 'Product decision',
+  //         result:
+  //           'Offline maps. Solves a real user problem (data on the road) while keeping users inside the Google ecosystem — retention through utility.',
+  //       },
+  //     ],
+  //     insight: 'Every loading state, error state, and empty state is a design decision. Maps makes all of them feel intentional.',
+  //   },
+  // },
 
   // {
   //   id: 'act5-youtube',
