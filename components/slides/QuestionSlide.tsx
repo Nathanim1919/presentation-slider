@@ -8,7 +8,7 @@ interface QuestionSlideProps {
 
 export default function QuestionSlide({ content }: QuestionSlideProps) {
   return (
-    <article className="flex flex-1 flex-col items-center justify-center px-8 text-center">
+    <article className="slide-article flex flex-1 flex-col items-center justify-center px-8 text-center">
       {/* Question mark accent */}
       <span
         className="stagger-1 slide-active"

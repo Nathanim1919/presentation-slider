@@ -28,10 +28,10 @@ export default function InteractiveSlide({ content }: InteractiveSlideProps) {
   const labelGood = content.toggleLabels?.[1] ?? 'Good Design';
 
   return (
-    <article className="flex flex-1 flex-col px-8 py-6" style={{ gap: 'var(--space-5)' }}>
+    <article className="slide-article flex flex-1 flex-col px-8 py-6" style={{ gap: 'var(--space-5)' }}>
       {/* Top section — description + toggle */}
       <div
-        className="stagger-1 slide-active flex items-start justify-between"
+        className="interactive-top stagger-1 slide-active flex items-start justify-between"
         style={{ gap: 'var(--space-6)' }}
       >
         <div style={{ maxWidth: '45ch' }}>

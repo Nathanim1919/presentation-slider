@@ -13,7 +13,7 @@ export default function JourneySlide({ content }: JourneySlideProps) {
 
   return (
     <article
-      className="flex flex-1 flex-col px-8 py-5"
+      className="slide-article flex flex-1 flex-col px-8 py-5"
       style={{ gap: 'var(--space-5)' }}
     >
       {/* ── Header ─────────────────────────────────────────── */}
@@ -70,6 +70,7 @@ export default function JourneySlide({ content }: JourneySlideProps) {
             gap: 'var(--space-3)',
             width: '100%',
           }}
+          className="journey-grid"
         >
           {content.steps.map((step, i) => {
             const isFriction = frictionMode && !!step.isFriction;

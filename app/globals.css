@@ -312,3 +312,378 @@ body {
   border-bottom: 5px solid transparent;
   border-left: 8px solid var(--border-strong);
 }
+
+/* ============================================
+   RESPONSIVE UTILITIES — SLIDE COMPONENTS
+   ============================================ */
+
+/* Hide on mobile (<= 640px) */
+@media (max-width: 640px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+/* Hide on desktop (> 640px) */
+@media (min-width: 641px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+/* --- Shell header responsive --- */
+@media (max-width: 640px) {
+  .shell-header {
+    padding: var(--space-3) var(--space-4) !important;
+    min-height: 48px !important;
+    gap: var(--space-2);
+  }
+
+  .shell-header nav {
+    gap: var(--space-2) !important;
+  }
+
+  .shell-main {
+    padding: var(--space-3) var(--space-4) !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .shell-header {
+    padding: var(--space-3) var(--space-5) !important;
+  }
+
+  .shell-main {
+    padding: var(--space-4) var(--space-5) !important;
+  }
+}
+
+/* --- Workshop menu responsive --- */
+@media (max-width: 640px) {
+  .workshop-header {
+    padding: var(--space-3) var(--space-4) !important;
+    min-height: 52px !important;
+  }
+
+  .workshop-main {
+    padding: var(--space-6) var(--space-4) !important;
+  }
+
+  .workshop-footer {
+    padding: var(--space-3) var(--space-4) !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .workshop-header {
+    padding: var(--space-4) var(--space-5) !important;
+  }
+
+  .workshop-main {
+    padding: var(--space-6) var(--space-5) !important;
+  }
+}
+
+/* --- Slide article — reduces horizontal padding on mobile --- */
+@media (max-width: 640px) {
+  .slide-article {
+    padding-left: var(--space-4) !important;
+    padding-right: var(--space-4) !important;
+    padding-top: var(--space-3) !important;
+    padding-bottom: var(--space-3) !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .slide-article {
+    padding-left: var(--space-5) !important;
+    padding-right: var(--space-5) !important;
+  }
+}
+
+/* --- Side-by-side → stacked on mobile --- */
+.slide-columns {
+  display: flex;
+}
+
+@media (max-width: 640px) {
+  .slide-columns {
+    flex-direction: column !important;
+    gap: var(--space-4) !important;
+  }
+
+  .slide-columns > * {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+/* --- Connector between columns (hide on mobile) --- */
+@media (max-width: 640px) {
+  .slide-connector {
+    display: none !important;
+  }
+
+  .slide-connector-mobile {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 641px) {
+  .slide-connector-mobile {
+    display: none !important;
+  }
+}
+
+/* --- Side panel (aside) responsive --- */
+@media (max-width: 640px) {
+  .slide-side-panel {
+    width: 100% !important;
+    flex-shrink: 1 !important;
+  }
+}
+
+/* --- Grid 3 → 2 → 1 columns --- */
+.slide-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 640px) {
+  .slide-grid-3 {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-3) !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .slide-grid-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* --- Journey step grid responsive --- */
+@media (max-width: 640px) {
+  .journey-grid {
+    gap: var(--space-2) !important;
+  }
+
+  .journey-grid > div {
+    flex: 1 1 calc(50% - 8px) !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .journey-grid > div {
+    flex: 1 1 calc(33.33% - 12px) !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+}
+
+/* --- Diagram flow: horizontal → vertical on mobile --- */
+@media (max-width: 640px) {
+  .diagram-flow {
+    flex-direction: column !important;
+    max-width: 320px !important;
+  }
+
+  .diagram-flow .diagram-node-wrapper {
+    flex-direction: column !important;
+  }
+
+  .diagram-flow .diagram-node {
+    width: 100% !important;
+  }
+}
+
+/* --- Three-layer slide responsive --- */
+@media (max-width: 640px) {
+  .three-layer-row {
+    flex-direction: column !important;
+  }
+
+  .three-layer-row .three-layer-label {
+    min-width: 0 !important;
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-subtle);
+    padding: var(--space-3) var(--space-4) !important;
+  }
+
+  .three-layer-row .three-layer-chips {
+    padding: var(--space-3) var(--space-4) !important;
+  }
+}
+
+/* --- Interactive slide top section responsive --- */
+@media (max-width: 640px) {
+  .interactive-top {
+    flex-direction: column !important;
+    gap: var(--space-3) !important;
+    align-items: stretch !important;
+  }
+
+  .interactive-top > div:first-child {
+    max-width: 100% !important;
+  }
+}
+
+/* --- Explanation slide layout responsive --- */
+@media (max-width: 640px) {
+  .explanation-layout {
+    flex-direction: column !important;
+    gap: var(--space-5) !important;
+  }
+}
+
+/* --- ButtonStory narrative responsive --- */
+@media (max-width: 640px) {
+  .btn-story-narrative {
+    position: static !important;
+    transform: none !important;
+    white-space: normal !important;
+    bottom: auto !important;
+    left: auto !important;
+    margin-top: var(--space-6) !important;
+  }
+}
+
+/* --- Touch-friendly tap targets --- */
+@media (max-width: 640px) {
+  .shell-header button,
+  .shell-header a[aria-label] {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* --- Challenge slide question label responsive --- */
+@media (max-width: 640px) {
+  .challenge-q-row {
+    flex-direction: column !important;
+    gap: var(--space-2) !important;
+  }
+
+  .challenge-q-label {
+    min-width: 0 !important;
+  }
+}
+
+/* --- CaseStudy steps responsive --- */
+@media (max-width: 640px) {
+  .case-step-row {
+    flex-direction: column !important;
+    gap: var(--space-1) !important;
+  }
+
+  .case-step-label {
+    min-width: 0 !important;
+  }
+}
+
+/* --- ShipCycle responsive --- */
+@media (max-width: 640px) {
+  .ship-cycle-flow {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: var(--space-2) !important;
+  }
+
+  .ship-cycle-flow > div {
+    flex: none !important;
+    width: 100% !important;
+  }
+
+  .ship-cycle-arrow,
+  .ship-cycle-loop {
+    display: none !important;
+  }
+
+  .ship-cycle-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+  .ship-cycle-arrow {
+    width: 10px !important;
+  }
+
+  .ship-cycle-loop {
+    display: none !important;
+  }
+
+  .ship-cycle-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* --- DesignProcess responsive --- */
+@media (max-width: 640px) {
+  .design-process-flow {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: var(--space-2) !important;
+  }
+
+  .design-process-flow > div {
+    flex: none !important;
+    width: 100% !important;
+  }
+
+  .design-process-arrow,
+  .design-process-loop {
+    display: none !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+  .design-process-arrow {
+    width: 8px !important;
+  }
+}
+
+/* --- UxScenario header responsive --- */
+@media (max-width: 640px) {
+  .ux-scenario-header {
+    flex-direction: column !important;
+    gap: var(--space-3) !important;
+  }
+}
+
+/* --- ButtonStates responsive --- */
+@media (max-width: 900px) {
+  .btn-states-flow {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)) !important;
+    gap: var(--space-3) !important;
+  }
+
+  .btn-states-flow > div {
+    flex: none !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .btn-states-connector {
+    display: none !important;
+  }
+
+  .btn-states-inspector {
+    flex-direction: column !important;
+    text-align: center;
+    gap: var(--space-2) !important;
+  }
+}
+
+/* --- DesignMastery controls responsive --- */
+@media (max-width: 640px) {
+  .design-mastery-controls {
+    flex-direction: column !important;
+    gap: var(--space-2) !important;
+  }
+}
+

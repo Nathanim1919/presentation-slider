@@ -54,7 +54,7 @@ export default function UiTransformSlide({ content }: UiTransformSlideProps) {
 
   return (
     <article
-      className="flex flex-1 flex-col px-8 py-5"
+      className="slide-article flex flex-1 flex-col px-8 py-5"
       style={{ gap: 'var(--space-4)' }}
     >
       {/* ── Heading ────────────────────────────────────────── */}
@@ -140,7 +140,8 @@ export default function UiTransformSlide({ content }: UiTransformSlideProps) {
         {/* ── The transforming form ── */}
         <div
           style={{
-            width: 340,
+            maxWidth: 340,
+            width: '100%',
             background: formBg,
             padding: formPad,
             borderRadius: formRadius,

@@ -8,7 +8,7 @@ interface IntroProjectsSlideProps {
 
 export default function IntroProjectsSlide({ content }: IntroProjectsSlideProps) {
   return (
-    <article className="flex flex-1 flex-col items-center justify-center px-8 py-12 max-w-3xl mx-auto w-full text-center">
+    <article className="slide-article flex flex-1 flex-col items-center justify-center px-8 py-12 max-w-3xl mx-auto w-full text-center">
       {/* 1. Large Bold Statement */}
       <h2
         className="stagger-1 slide-active"

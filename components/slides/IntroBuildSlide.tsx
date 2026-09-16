@@ -11,7 +11,7 @@ export default function IntroBuildSlide({ content }: IntroBuildSlideProps) {
   const [demoState, setDemoState] = useState<'idle' | 'hover' | 'loading'>('idle');
 
   return (
-    <article className="flex flex-1 flex-col items-center justify-center px-8 py-8 max-w-4xl mx-auto w-full text-center">
+    <article className="slide-article flex flex-1 flex-col items-center justify-center px-8 py-8 max-w-4xl mx-auto w-full text-center">
       {/* 1. Dramatic Statement */}
       <div className="stagger-1 slide-active mb-6">
         <h2

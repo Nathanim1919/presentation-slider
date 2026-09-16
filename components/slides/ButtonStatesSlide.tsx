@@ -22,7 +22,7 @@ export default function ButtonStatesSlide({ content }: ButtonStatesSlideProps) {
   ) || states[0];
 
   return (
-    <article className="flex flex-1 flex-col items-center justify-center px-6 py-4 overflow-x-hidden">
+    <article className="slide-article flex flex-1 flex-col items-center justify-center px-6 py-4 overflow-x-hidden">
       {content.heading && (
         <h2
           className="stagger-1 slide-active"
@@ -45,7 +45,7 @@ export default function ButtonStatesSlide({ content }: ButtonStatesSlideProps) {
         style={{ marginTop: 'var(--space-2)' }}
       >
         {/* Row of 7 State Columns with Connectors */}
-        <div className="w-full flex items-start justify-center gap-0">
+        <div className="btn-states-flow w-full flex items-start justify-center gap-0">
           {states.map((state, i) => {
             const isCurrentHovered = hoveredState === state.id;
             const isCurrentActive = activeState === state.id;
@@ -379,7 +379,7 @@ export default function ButtonStatesSlide({ content }: ButtonStatesSlideProps) {
                 {/* --- HORIZONTAL CONNECTOR ARROW (BETWEEN BOXES) --- */}
                 {i < states.length - 1 && (
                   <div
-                    className="flex items-center self-center"
+                    className="btn-states-connector flex items-center self-center"
                     style={{
                       paddingTop: 104, // Aligns connector with the middle of the state box
                       paddingLeft: 4,
@@ -413,7 +413,7 @@ export default function ButtonStatesSlide({ content }: ButtonStatesSlideProps) {
 
         {/* State Inspector / Callout */}
         <div
-          className="w-full max-w-3xl mt-8 px-5 py-3.5 rounded-xl transition-all duration-300"
+          className="btn-states-inspector w-full max-w-3xl mt-8 px-5 py-3.5 rounded-xl transition-all duration-300"
           style={{
             background: 'rgba(255, 255, 255, 0.02)',
             border: '1px solid var(--border-default)',

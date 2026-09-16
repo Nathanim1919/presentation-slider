@@ -15,7 +15,7 @@ interface ThreeLayerSlideProps {
 export default function ThreeLayerSlide({ content }: ThreeLayerSlideProps) {
   return (
     <article
-      className="flex flex-1 flex-col items-center justify-center px-8 py-6"
+      className="slide-article flex flex-1 flex-col items-center justify-center px-8 py-6"
       style={{ gap: 'var(--space-6)' }}
     >
       {/* Optional heading */}
@@ -46,13 +46,13 @@ export default function ThreeLayerSlide({ content }: ThreeLayerSlideProps) {
         }}
       >
         {content.layers.map((layer, i) => {
-          const c       = LAYER_COLORS[i % LAYER_COLORS.length];
           const stagger = `stagger-${i + (content.heading ? 2 : 1)}`;
+          const c = LAYER_COLORS[i % LAYER_COLORS.length];
 
           return (
             <div
               key={i}
-              className={`${stagger} slide-active`}
+              className={`three-layer-row stagger-${Math.min(i + 2, 5)} slide-active`}
               style={{
                 display: 'flex',
                 alignItems: 'stretch',
@@ -72,6 +72,7 @@ export default function ThreeLayerSlide({ content }: ThreeLayerSlideProps) {
             >
               {/* Label column */}
               <div
+                className="three-layer-label"
                 style={{
                   minWidth: 150,
                   padding: 'var(--space-5)',
@@ -108,6 +109,7 @@ export default function ThreeLayerSlide({ content }: ThreeLayerSlideProps) {
 
               {/* Questions / chips */}
               <div
+                className="three-layer-chips"
                 style={{
                   flex: 1,
                   padding: 'var(--space-4) var(--space-5)',

@@ -68,7 +68,7 @@ export default function ShipCycleSlide({ content }: ShipCycleSlideProps) {
   return (
     <article
       ref={containerRef}
-      className="flex flex-1 flex-col items-center justify-center px-6 py-4"
+      className="slide-article flex flex-1 flex-col items-center justify-center px-6 py-4"
       style={{ width: '100%', height: '100%', position: 'relative' }}
     >
       {/* ---- TOP TITLE & SUBTITLE ---- */}
@@ -123,6 +123,7 @@ export default function ShipCycleSlide({ content }: ShipCycleSlideProps) {
 
       {/* ---- 6-STAGE CARDS FLOW ---- */}
       <div
+        className="ship-cycle-flow"
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -263,6 +264,7 @@ export default function ShipCycleSlide({ content }: ShipCycleSlideProps) {
               {/* Arrow Connector between cards */}
               {idx < stages.length - 1 && (
                 <div
+                  className="ship-cycle-arrow"
                   style={{
                     width: 18,
                     display: 'flex',
@@ -283,6 +285,7 @@ export default function ShipCycleSlide({ content }: ShipCycleSlideProps) {
               {/* Final Loop Indicator after stage 6 (IMPROVE) */}
               {idx === stages.length - 1 && (
                 <div
+                  className="ship-cycle-loop"
                   style={{
                     position: 'absolute',
                     right: -24,
@@ -497,6 +500,7 @@ export default function ShipCycleSlide({ content }: ShipCycleSlideProps) {
 
           {/* Progressive Reveal Phase 2 & 3: Two Columns Layout */}
           <div
+            className="ship-cycle-grid"
             style={{
               display: 'grid',
               gridTemplateColumns: '1.1fr 1fr',

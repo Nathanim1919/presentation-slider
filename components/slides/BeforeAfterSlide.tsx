@@ -11,7 +11,7 @@ export default function BeforeAfterSlide({ content }: BeforeAfterSlideProps) {
   const afterItems = content.after.improvements || content.after.items || [];
 
   return (
-    <article className="flex flex-1 flex-col items-center justify-center px-8 py-6">
+    <article className="slide-article flex flex-1 flex-col items-center justify-center px-8 py-6">
       {content.heading && (
         <h2
           className="stagger-1 slide-active text-center"
@@ -29,7 +29,7 @@ export default function BeforeAfterSlide({ content }: BeforeAfterSlideProps) {
         </h2>
       )}
 
-      <div className="flex w-full items-stretch gap-6" style={{ maxWidth: 850 }}>
+      <div className="slide-columns flex w-full items-stretch gap-6" style={{ maxWidth: 850 }}>
         {/* Before */}
         <div
           className="stagger-2 slide-active flex flex-1 flex-col"
@@ -87,7 +87,7 @@ export default function BeforeAfterSlide({ content }: BeforeAfterSlideProps) {
         </div>
 
         {/* Arrow */}
-        <div className="stagger-3 slide-active flex flex-col items-center justify-center">
+        <div className="slide-connector stagger-3 slide-active flex flex-col items-center justify-center">
           <span
             style={{
               fontSize: 'var(--text-h3)',

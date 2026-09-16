@@ -90,7 +90,7 @@ export default function ComparisonSlide({ content }: ComparisonSlideProps) {
   };
 
   return (
-    <article className="flex flex-1 flex-col items-center justify-center px-8 py-6">
+    <article className="slide-article flex flex-1 flex-col items-center justify-center px-8 py-6">
       {heading && (
         <h2
           className="stagger-1 slide-active text-center"
@@ -109,7 +109,7 @@ export default function ComparisonSlide({ content }: ComparisonSlideProps) {
       )}
 
       <div
-        className="flex w-full items-stretch gap-6"
+        className="slide-columns flex w-full items-stretch gap-6"
         style={{ maxWidth: 900 }}
       >
         {/* Left panel */}
@@ -118,7 +118,7 @@ export default function ComparisonSlide({ content }: ComparisonSlideProps) {
         {/* Connector */}
         {connectorLabel && (
           <div
-            className="stagger-3 slide-active flex flex-col items-center justify-center"
+            className="slide-connector stagger-3 slide-active flex flex-col items-center justify-center"
             style={{ width: 48 }}
           >
             <div

@@ -12,7 +12,7 @@ export default function TableOfContentsSlide({ content }: TableOfContentsSlidePr
 
   return (
     <article
-      className="flex flex-1 flex-col items-center justify-center px-8 py-6 text-center"
+      className="slide-article flex flex-1 flex-col items-center justify-center px-8 py-6 text-center"
       style={{ width: '100%', height: '100%' }}
     >
       <div
@@ -89,7 +89,7 @@ export default function TableOfContentsSlide({ content }: TableOfContentsSlidePr
 
         {/* Table of Contents Grid (3 columns x 2 rows) */}
         <div
-          className="stagger-3 slide-active"
+          className="slide-grid-3 stagger-3 slide-active"
           style={{
             width: '100%',
             display: 'grid',
