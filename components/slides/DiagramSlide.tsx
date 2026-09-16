@@ -10,9 +10,9 @@ export default function DiagramSlide({ content }: DiagramSlideProps) {
   const isHorizontal = content.direction === 'horizontal';
 
   return (
-    <article className="flex flex-1 flex-col items-center justify-center px-8 py-6">
+    <article className="slide-article flex flex-1 flex-col items-center justify-center px-8 py-6">
       <div
-        className={`flex ${isHorizontal ? 'flex-row' : 'flex-col'} items-center`}
+        className={`diagram-flow flex ${isHorizontal ? 'flex-row' : 'flex-col'} items-center`}
         style={{
           gap: 0,
           maxWidth: isHorizontal ? 900 : 400,
@@ -22,12 +22,12 @@ export default function DiagramSlide({ content }: DiagramSlideProps) {
         {content.nodes.map((node, i) => (
           <div
             key={node.id || node.label || i}
-            className={`flex ${isHorizontal ? 'flex-row' : 'flex-col'} items-center`}
+            className={`diagram-node-wrapper flex ${isHorizontal ? 'flex-row' : 'flex-col'} items-center`}
             style={{ flex: i < content.nodes.length - 1 ? 1 : undefined }}
           >
             {/* Node */}
             <div
-              className={`stagger-${Math.min(i + 1, 5)} slide-active`}
+              className={`diagram-node stagger-${Math.min(i + 1, 5)} slide-active`}
               style={{
                 display: 'flex',
                 flexDirection: 'column',

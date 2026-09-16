@@ -11,7 +11,7 @@ export default function ExplanationSlide({ content }: ExplanationSlideProps) {
 
   return (
     <article
-      className="flex flex-1 gap-12 px-8 py-6"
+      className="slide-article explanation-layout flex flex-1 gap-12 px-8 py-6"
       style={{
         alignItems: 'flex-start',
       }}
@@ -55,7 +55,7 @@ export default function ExplanationSlide({ content }: ExplanationSlideProps) {
       {/* Side visual */}
       {hasVisual && (
         <aside
-          className="stagger-3 slide-active"
+          className="slide-side-panel stagger-3 slide-active"
           style={{
             width: '280px',
             flexShrink: 0,

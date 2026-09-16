@@ -8,7 +8,7 @@ interface HeroSlideProps {
 
 export default function HeroSlide({ content }: HeroSlideProps) {
   return (
-    <article className="flex flex-1 flex-col items-center justify-center px-8 text-center max-w-2xl mx-auto">
+    <article className="slide-article flex flex-1 flex-col items-center justify-center px-8 text-center max-w-2xl mx-auto">
       {content.avatar && (
         <div className="stagger-1 slide-active mb-8 flex items-center justify-center">
           {content.avatar.startsWith('/') ||

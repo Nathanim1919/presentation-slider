@@ -23,6 +23,7 @@ export default function WorkshopMenu() {
     >
       {/* Header Bar */}
       <header
+        className="workshop-header"
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -65,6 +66,7 @@ export default function WorkshopMenu() {
 
       {/* Main Directory Body */}
       <main
+        className="workshop-main"
         style={{
           flex: 1,
           display: 'flex',
@@ -448,6 +450,7 @@ export default function WorkshopMenu() {
 
       {/* Subtle Footer info */}
       <footer
+        className="workshop-footer"
         style={{
           padding: 'var(--space-4) var(--space-8)',
           display: 'flex',

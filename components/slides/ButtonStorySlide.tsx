@@ -97,7 +97,7 @@ export default function ButtonStorySlide({ content }: ButtonStorySlideProps) {
   const isDisabled = state === 'loading';
 
   return (
-    <article className="flex flex-1 flex-col items-center justify-center px-8">
+    <article className="slide-article flex flex-1 flex-col items-center justify-center px-8">
       {/* Heading */}
       <h2
         className="stagger-1 slide-active"
@@ -236,7 +236,7 @@ export default function ButtonStorySlide({ content }: ButtonStorySlideProps) {
       {/* Narrative footer */}
       {content.narrative && (
         <p
-          className="stagger-3 slide-active"
+          className="btn-story-narrative stagger-3 slide-active"
           style={{
             position: 'absolute',
             bottom: 'var(--space-7)',

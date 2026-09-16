@@ -8,7 +8,7 @@ interface ExerciseSlideProps {
 
 export default function ExerciseSlide({ content }: ExerciseSlideProps) {
   return (
-    <article className="flex flex-1 flex-col items-center justify-center px-8">
+    <article className="slide-article flex flex-1 flex-col items-center justify-center px-8 py-6">
       <div style={{ maxWidth: 600, width: '100%' }}>
         {/* Badge */}
         <div

@@ -64,7 +64,7 @@ export default function DesignProcessSlide({ content }: DesignProcessSlideProps)
 
   return (
     <article
-      className="flex flex-1 flex-col items-center justify-center px-6 py-4"
+      className="slide-article flex flex-1 flex-col items-center justify-center px-6 py-4"
       style={{ width: '100%', height: '100%', position: 'relative' }}
     >
       {/* ---- HEADER ---- */}
@@ -130,6 +130,7 @@ export default function DesignProcessSlide({ content }: DesignProcessSlideProps)
       >
         {/* Stages Row */}
         <div
+          className="design-process-flow"
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -223,6 +224,7 @@ export default function DesignProcessSlide({ content }: DesignProcessSlideProps)
 
                 {idx < stages.length - 1 && (
                   <div
+                    className="design-process-arrow"
                     style={{
                       width: 14,
                       display: 'flex',
@@ -245,6 +247,7 @@ export default function DesignProcessSlide({ content }: DesignProcessSlideProps)
 
         {/* The Return Loop SVG (LEARN ➔ ITERATE ➔ UNDERSTAND) */}
         <div
+          className="design-process-loop"
           style={{
             width: '100%',
             height: isDetailOpen ? 36 : 46,
